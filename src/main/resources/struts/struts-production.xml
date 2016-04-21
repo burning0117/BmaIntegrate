@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+        "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+    <package name="production" namespace="/" extends="struts-default">
+        <action name="productionAction_*" method="{1}" class="productionAction">
+            <result name="listAction">WEB-INF/jsp/production/list.jsp</result>
+            <result name="addUI">WEB-INF/jsp/production/add.jsp</result>
+            <result name="updateUI">WEB-INF/jsp/production/update.jsp</result>
+            <result name="action2action" type="redirectAction">productionAction_getAllProduction.action</result>
+        </action>
+    </package>
+</struts>

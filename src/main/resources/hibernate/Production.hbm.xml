@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="domain.Production" table="production" catalog="bma">
+        <id name="pid" type="java.lang.Long" length="5">
+            <column name="pid"></column>
+            <generator class="increment"></generator>
+        </id>
+        <property name="name" type="java.lang.String" length="20"></property>
+        <property name="price" type="java.math.BigDecimal" length="20"></property>
+        <property name="pricerate" type="java.math.BigDecimal" length="20"></property>
+        <property name="preputation" type="java.math.BigDecimal" length="20"></property>
+        <property name="preputationrate" type="java.math.BigDecimal" length="20"></property>
+        <property name="pqos" type="java.math.BigDecimal" length="20"></property>
+        <many-to-one name="seller" class="domain.Seller" unique="true">
+            <column name="sid"></column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
