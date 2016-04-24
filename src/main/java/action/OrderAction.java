@@ -2,7 +2,6 @@ package action;
 
 import com.opensymphony.xwork2.ActionContext;
 import domain.Order;
-import domain.Preuser;
 import domain.User;
 import org.springframework.beans.BeanUtils;
 import org.springframework.context.annotation.Scope;

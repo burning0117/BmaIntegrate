@@ -13,8 +13,9 @@
         <property name="preputation" type="java.math.BigDecimal" length="20"></property>
         <property name="preputationrate" type="java.math.BigDecimal" length="20"></property>
         <property name="pqos" type="java.math.BigDecimal" length="20"></property>
-        <many-to-one name="seller" class="domain.Seller" unique="true">
-            <column name="sid"></column>
+        <property name="image" type="java.lang.String" length="100"></property>
+        <many-to-one name="categorySecond" class="domain.CategorySecond" unique="true">
+            <column name="csid"></column>
         </many-to-one>
     </class>
 </hibernate-mapping>

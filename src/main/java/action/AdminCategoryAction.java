@@ -2,7 +2,6 @@ package action;
 
 import com.opensymphony.xwork2.ActionContext;
 import domain.Category;
-import org.apache.struts2.components.Bean;
 import org.springframework.beans.BeanUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;

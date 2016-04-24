@@ -15,6 +15,24 @@ public class Production implements Serializable {
     private BigDecimal preputationrate;
     private BigDecimal pqos;
     private Seller seller;
+    private String image;
+    private CategorySecond categorySecond;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public CategorySecond getCategorySecond() {
+        return categorySecond;
+    }
+
+    public void setCategorySecond(CategorySecond categorySecond) {
+        this.categorySecond = categorySecond;
+    }
 
     public Long getPid() {
         return pid;
