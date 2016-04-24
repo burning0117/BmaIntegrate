@@ -32,6 +32,6 @@ public class PageHibernateCallback<T> implements HibernateCallback{
         }
         query.setFirstResult(startIndex);
         query.setMaxResults(pageSize);
-        return null;
+        return query.list();
     }
 }

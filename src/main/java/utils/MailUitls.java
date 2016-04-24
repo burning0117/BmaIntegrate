@@ -16,16 +16,21 @@ public class MailUitls {
         Session session=Session.getInstance(properties, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("sevice@shop.com","111");
+                return new PasswordAuthentication("service@shop.com","111");
             }
         });
+        /*创建邮件对象*/
         Message message=new MimeMessage(session);
+        /*设置发件人*/
         try {
             message.setFrom(new InternetAddress("service@shop.com"));
+            /*设置收件人*/
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            /*设置标题*/
             message.setSubject("来自购物商城官方激活邮件");
-            /*需要修改*/
+            /*设置邮件正文*/
             message.setContent("<h1>购物天堂传智商城官方激活邮件!点下面链接完成激活操作!</h1><h3><a href='http://192.168.36.103:8080/shop/user_active.action?code="+code+"'>http://192.168.36.103:8080/shop/user_active.action?code="+code+"</a></h3>", "text/html;charset=UTF-8");
+            /*发送邮件*/
             Transport.send(message);
         }catch (AddressException e){
             e.printStackTrace();

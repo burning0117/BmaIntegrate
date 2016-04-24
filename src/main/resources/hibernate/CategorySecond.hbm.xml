@@ -8,6 +8,9 @@
             <generator class="increment"></generator>
         </id>
         <property name="csname" type="java.lang.String" length="20"></property>
+        <many-to-one name="category" lazy="false" class="domain.Category">
+            <column name="cid"></column>
+        </many-to-one>
         <set name="productionList" cascade="all" inverse="true">
             <key column="pid"/>
             <one-to-many class="domain.Production"/>
