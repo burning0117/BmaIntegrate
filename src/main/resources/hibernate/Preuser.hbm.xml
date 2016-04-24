@@ -2,9 +2,9 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="domain.User" table="user" catalog="bma">
-        <id name="uid" type="java.lang.Long" length="5">
-            <column name="uId"></column>
+    <class name="domain.Preuser" table="preuser" catalog="bma">
+        <id name="puid" type="java.lang.Long" length="5">
+            <column name="puid"></column>
             <generator class="increment"></generator>
         </id>
         <property name="name" type="java.lang.String" length="20"></property>
@@ -12,10 +12,11 @@
         <property name="phone" type="java.lang.String" length="20"></property>
         <property name="address" type="java.lang.String" length="100"></property>
         <property name="email" type="java.lang.String" length="50"></property>
-        <property name="ureputation" type="java.math.BigDecimal" length="20"></property>
-        <set name="order" cascade="all" inverse="true">
+        <property name="state" type="java.math.BigDecimal" length="20"></property>
+        <property name="code" type="java.math.BigDecimal" length="20"></property>
+        <set name="orders" cascade="delete">
             <key>
-                <column name="gid"></column>
+                <column name="uid"></column>
             </key>
             <one-to-many class="domain.Order"/>
         </set>

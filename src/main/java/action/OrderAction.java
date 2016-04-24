@@ -1,12 +1,13 @@
 package action;
 
 import com.opensymphony.xwork2.ActionContext;
-import domain.Good;
+import domain.Order;
+import domain.Preuser;
 import domain.User;
 import org.springframework.beans.BeanUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-import service.GoodService;
+import service.OrderService;
 import service.UserService;
 import utils.DeleteMode;
 
@@ -16,11 +17,11 @@ import java.util.Collection;
 /**
  * Created by lily on 2016/4/5.
  */
-@Controller("goodAction")
+@Controller("orderAction")
 @Scope("prototype")
-public class GoodAction extends BaseAction<Good>{
-   @Resource(name = "goodService")
-   private GoodService goodService;
+public class OrderAction extends BaseAction<Order>{
+   @Resource(name = "orderService")
+   private OrderService orderService;
    @Resource(name = "userService")
    private UserService userService;
    private Long uid;
@@ -33,13 +34,13 @@ public class GoodAction extends BaseAction<Good>{
       this.uid = uid;
    }
 
-   public String getAllGood(){
-      Collection<Good> goodList=this.goodService.getAllGoods();
-      ActionContext.getContext().put("goodList",goodList);
+   public String getAllOrder(){
+      Collection<Order> orderList =this.orderService.getAllGoods();
+      ActionContext.getContext().put("orderList", orderList);
       return listAction;
    }
-   public String deleteGood(){
-      this.goodService.deleteGood(this.getModel().getGid(), DeleteMode.DEL_PRE_RELEASE);
+   public String deleteOrder(){
+      this.orderService.deleteGood(this.getModel().getOid(), DeleteMode.DEL_PRE_RELEASE);
       return action2action;
    }
    public String addUI(){
@@ -48,26 +49,26 @@ public class GoodAction extends BaseAction<Good>{
       return addUI;
    }
    public String add(){
-      Good good=new Good();
-      BeanUtils.copyProperties(this.getModel(), good);
-      User user=this.userService.getUserById(this.uid);
-      good.setUser(user);
-      this.goodService.saveGood(good);
+      Order order =new Order();
+      BeanUtils.copyProperties(this.getModel(), order);
+//      Preuser user=this.userService.getUserById(this.uid);
+//      order.setPreuser(user);
+      this.orderService.saveGood(order);
       return action2action;
    }
    public String updateUI(){
       Collection<User> userList=this.userService.getAllUser();
-      Good good=this.goodService.getGoodById(this.getModel().getGid());
-      ActionContext.getContext().getValueStack().getRoot().add(0, good);
+      Order order =this.orderService.getGoodById(this.getModel().getOid());
+      ActionContext.getContext().getValueStack().getRoot().add(0, order);
       ActionContext.getContext().put("userList",userList);
       return updateUI;
    }
    public String update(){
-      Good good=this.goodService.getGoodById(this.getModel().getGid());
-      BeanUtils.copyProperties(this.getModel(),good);
+      Order order =this.orderService.getGoodById(this.getModel().getOid());
+      BeanUtils.copyProperties(this.getModel(), order);
       User user=this.userService.getUserById(this.uid);
-      good.setUser(user);
-      this.goodService.updateGood(good);
+//      order.setUser(user);
+      this.orderService.updateGood(order);
       return action2action;
    }
 }

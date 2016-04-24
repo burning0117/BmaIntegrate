@@ -2,9 +2,9 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="domain.Good" table="good" catalog="bma">
-        <id name="gid" type="java.lang.Long" length="5">
-            <column name="gid"></column>
+    <class name="domain.Order" table="order" catalog="bma">
+        <id name="oid" type="java.lang.Long" length="5">
+            <column name="oid"></column>
             <generator class="increment"></generator>
         </id>
         <property name="name" type="java.lang.String" length="20"></property>
@@ -14,8 +14,8 @@
         <property name="greputationrate" type="java.math.BigDecimal" length="20"></property>
         <property name="gqos" type="java.math.BigDecimal" length="20"></property>
         <property name="gqosrate" type="java.math.BigDecimal" length="20"></property>
-        <many-to-one name="user" class="domain.User" unique="true">
-            <column name="uid"></column>
+        <many-to-one name="preuser" class="domain.Preuser" unique="true">
+            <column name="puid"></column>
         </many-to-one>
     </class>
 </hibernate-mapping>

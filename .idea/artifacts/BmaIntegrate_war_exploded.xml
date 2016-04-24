@@ -12,6 +12,7 @@
           <element id="library" level="project" name="json" />
           <element id="library" level="project" name="struts" />
           <element id="library" level="project" name="spring" />
+          <element id="library" level="project" name="mail" />
         </element>
       </element>
       <element id="directory" name="META-INF">

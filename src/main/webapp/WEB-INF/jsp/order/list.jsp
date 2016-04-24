@@ -42,8 +42,8 @@
         </thead>
 
         <!--显示数据列表-->
-        <tbody id="TableData" class="dataContainer" datakey="goodList">
-        <s:iterator value="#goodList">
+        <tbody id="TableData" class="dataContainer" datakey="orderList">
+        <s:iterator value="#orderList">
             <tr class="TableDetail1 template">
                 <td><input type="checkbox"/></td>
                 <td><s:property value="name"/></td>

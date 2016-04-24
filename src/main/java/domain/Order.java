@@ -6,8 +6,8 @@ import java.math.BigDecimal;
 /**
  * Created by lily on 2016/4/3.
  */
-public class Good implements Serializable {
-    private Long gid;
+public class Order implements Serializable {
+    private Long oid;
     private String name;
     private BigDecimal price;
     private BigDecimal pricerate;
@@ -15,14 +15,14 @@ public class Good implements Serializable {
     private BigDecimal greputationrate;
     private BigDecimal gqos;
     private BigDecimal gqosrate;
-    private User user;
+    private Preuser preuser;
 
-    public Long getGid() {
-        return gid;
+    public Long getOid() {
+        return oid;
     }
 
-    public void setGid(Long gid) {
-        this.gid = gid;
+    public void setOid(Long oid) {
+        this.oid = oid;
     }
 
     public String getName() {
@@ -81,11 +81,11 @@ public class Good implements Serializable {
         this.gqosrate = gqosrate;
     }
 
-    public User getUser() {
-        return user;
+    public Preuser getPreuser() {
+        return preuser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setPreuser(Preuser preuser) {
+        this.preuser = preuser;
     }
 }

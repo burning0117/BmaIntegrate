@@ -14,7 +14,11 @@
                 <property name="show_sql">true</property>
                 <mapping resource="hibernate/Production.hbm.xml"/>
                 <mapping resource="hibernate/Seller.hbm.xml"/>
-                <mapping resource="hibernate/Good.hbm.xml"/>
+                <mapping resource="hibernate/Order.hbm.xml"/>
                 <mapping resource="hibernate/User.hbm.xml"/>
+                <mapping resource="hibernate/Preuser.hbm.xml"/>
+                <mapping resource="hibernate/Category.hbm.xml"/>
+                <mapping resource="hibernate/CategorySecond.hbm.xml"/>
+                <mapping resource="hibernate/OrderItem.hbm.xml"/>
         </session-factory>
 </hibernate-configuration>

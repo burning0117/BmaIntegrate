@@ -22,7 +22,7 @@
 
 <!--显示表单内容-->
 <div id=MainArea>
-    <s:form action="goodAction_add.action">
+    <s:form action="orderAction_add.action">
         <div class="ItemBlock_Title1"><!-- 信息说明 -->
             <div class="ItemBlock_Title1">
                 <img border="0" width="4" height="7"

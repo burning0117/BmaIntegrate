@@ -15,10 +15,10 @@ public class User implements Serializable{
     private String address;
     private String phone;
     private BigDecimal ureputation;
-    private Set<Good> good;
+    private Set<Order> order;
 
-    public Set<Good> getGood() {
-        return good;
+    public Set<Order> getOrder() {
+        return order;
     }
 
     public Long getUid() {
@@ -29,8 +29,8 @@ public class User implements Serializable{
         this.uid = uid;
     }
 
-    public void setGood(Set<Good> good) {
-        this.good = good;
+    public void setOrder(Set<Order> order) {
+        this.order = order;
     }
 
     public String getName() {

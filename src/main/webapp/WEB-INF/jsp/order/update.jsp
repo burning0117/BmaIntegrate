@@ -21,12 +21,12 @@
 
 <!--显示表单内容-->
 <div id=MainArea>
-    <s:form action="goodAction_update.action">
-        <s:hidden name="gid"></s:hidden>
+    <s:form action="orderAction_update.action">
+        <s:hidden name="oid"></s:hidden>
         <div class="ItemBlock_Title1"><!-- 信息说明 -->
             <div class="ItemBlock_Title1">
                 <img border="0" width="4" height="7"
-                     src="${pageContext.request.contextPath}/css/blue/images/item_point.gif"/> 商品信息
+                     src="${pageContext.request.contextPath}/css/blue/images/item_point.gif"/> 订单信息
             </div>
         </div>
 

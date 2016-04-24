@@ -11,8 +11,9 @@
     <constant name="struts.ui.theme" value="simple"/>
     <include file="struts/struts-user.xml"/>
     <include file="struts/struts-seller.xml"/>
-    <include file="struts/struts-good.xml"/>
+    <include file="struts/struts-order.xml"/>
     <include file="struts/struts-production.xml"/>
+    <include file="struts/struts-preuser.xml"/>
     <!--<include file="struts/struts-plugin.xml"/>-->
     <!--<package name="ajax" extends="struts-default">-->
         <!--<result-types>-->
