@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+        "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+    <package name="adminCategorySecond" namespace="/" extends="struts-default">
+        <action name="adminCategorySecondAction_*" method="{1}" class="action.AdminCategorySecondAction">
+            <result name="findAll">/admin/categorysecond/list.jsp</result>
+            <result name="addPage">/admin/categorysecond/add.jsp</result>
+            <result name="saveSuccess" type="redirectAction">adminCategorySecondAction_findAll</result>
+            <result name="deleteSuccess" type="redirectAction">adminCategorySecondAction_findAll</result>
+            <result name="editSuccess" type="redirectAction">adminCategorySecondAction_findAll</result>
+            <result name="updateSuccess" type="redirectAction">adminCategorySecondAction_findAll</result>
+        </action>
+    </package>
+</struts>

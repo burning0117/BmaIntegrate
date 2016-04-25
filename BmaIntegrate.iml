@@ -24,6 +24,10 @@
             <file>file://$MODULE_DIR$/src/main/resources/struts/struts-preuser.xml</file>
             <file>file://$MODULE_DIR$/src/main/resources/struts/struts-checkImg.xml</file>
             <file>file://$MODULE_DIR$/src/main/resources/struts/struts-cart.xml</file>
+            <file>file://$MODULE_DIR$/src/main/resources/struts/struts-adminCategory.xml</file>
+            <file>file://$MODULE_DIR$/src/main/resources/struts/struts-adminCategorySecond.xml</file>
+            <file>file://$MODULE_DIR$/src/main/resources/struts/struts-userAdmin.xml</file>
+            <file>file://$MODULE_DIR$/src/main/resources/struts/struts-adminProduction.xml</file>
           </fileset>
           <propertiesKeys disabled="false" />
         </configuration>
