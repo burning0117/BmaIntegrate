@@ -8,8 +8,9 @@ import java.util.Set;
  */
 public class Preuser implements Serializable{
    private Long puid;
-   private String name;
+   private String username;
    private String password;
+   private String name;
    private String email;
    private String phone;
    private String address;
@@ -31,6 +32,14 @@ public class Preuser implements Serializable{
 
    public void setPuid(Long puid) {
       this.puid = puid;
+   }
+
+   public String getUsername() {
+      return username;
+   }
+
+   public void setUsername(String username) {
+      this.username = username;
    }
 
    public String getName() {

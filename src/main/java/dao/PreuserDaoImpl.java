@@ -15,8 +15,8 @@ import java.util.List;
 @Repository("preuserDao")
 public class PreuserDaoImpl extends BaseDaoImpl<Preuser> implements PreuserDao<Preuser> {
 
-    public Preuser getUserByName(String name) {
-        List<Preuser> preuserList = this.hibernateTemplate.find("from Preuser where name=?", name);
+    public Preuser getUserByName(String username) {
+        List<Preuser> preuserList = this.hibernateTemplate.find("from Preuser where username=?", username);
         if (preuserList.size() == 0) {
             return null;
         } else {

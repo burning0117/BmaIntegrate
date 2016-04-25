@@ -18,7 +18,7 @@ import java.io.IOException;
  */
 @Controller("preuserAction")
 @Scope("prototype")
-public class PreuserAction extends BaseAction<User>{
+public class PreuserAction extends BaseAction<Preuser>{
     @Resource(name = "preuserService")
     private PreuserService preuserService;
     private Preuser preuser=new Preuser();
@@ -26,16 +26,16 @@ public class PreuserAction extends BaseAction<User>{
     public String registPage(){
         return "registPage";
     }
+    public String message;
     public String findByName()throws IOException{
-        Preuser existUser=preuserService.findByUserName(preuser.getName());
-        HttpServletResponse response= ServletActionContext.getResponse();
-        response.setContentType("text/html:charset=UTF-8");
-        if (existUser!=null){
-            response.getWriter().println("<font color='red'>用户名已经存在</font>");
+        Preuser user=this.preuserService.findByUserName(this.getModel().getUsername());
+        System.out.println("111111");
+        if (user==null){
+            this.message="该用户名可以使用";
         }else {
-            response.getWriter().println("<font color='green'>用户名可以使用</font>");
+            this.message="该用户名已经存在";
         }
-        return NONE;
+        return SUCCESS;
     }
     public String regist(){
         String checkCode= (String) ServletActionContext.getRequest().getSession().getAttribute("checkcode");

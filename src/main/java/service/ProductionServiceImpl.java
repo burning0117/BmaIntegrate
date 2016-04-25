@@ -19,6 +19,14 @@ public class ProductionServiceImpl implements ProductionService {
     @Resource(name = "productionDao")
     private ProductionDao productionDao;
 
+    public List<Production> findNew() {
+        return this.productionDao.findNew();
+    }
+
+    public List<Production> findHot() {
+        return this.productionDao.findHot();
+    }
+
     @Transactional(readOnly = false)
     public void saveProduction(Production production) {
         this.productionDao.saveEntry(production);
@@ -75,6 +83,23 @@ public class ProductionServiceImpl implements ProductionService {
     }
 
     public PageBean<Production> getProductionByPage(Integer page) {
-        return null;
+        PageBean<Production> pageBean=new PageBean<Production>();
+        pageBean.setPage(page);
+        int limit=10;
+        pageBean.setLimit(limit);
+        int totalCount=0;
+        totalCount=this.productionDao.findCount();
+        pageBean.setTotalCount(totalCount);
+        int totalPage=0;
+        if (totalCount%limit==0){
+            totalPage=totalCount/limit;
+        }else {
+            totalPage=totalCount/limit+1;
+        }
+        pageBean.setTotalPage(totalPage);
+        int begin=(page-1)*limit;
+        List<Production> list=productionDao.findByPage(begin,limit);
+        pageBean.setList(list);
+        return pageBean;
     }
 }

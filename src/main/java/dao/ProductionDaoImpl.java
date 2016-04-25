@@ -1,6 +1,9 @@
 package dao;
 
 import domain.Production;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import utils.PageHibernateCallback;
 
@@ -13,6 +16,21 @@ import java.util.List;
  */
 @Repository("productionDao")
 public class ProductionDaoImpl extends BaseDaoImpl<Production> implements ProductionDao<Production> {
+
+    public List<Production> findHot() {
+        DetachedCriteria detachedCriteria=DetachedCriteria.forClass(Production.class);
+        detachedCriteria.add(Restrictions.eq("is_hot", 1));
+        detachedCriteria.addOrder(Order.desc("pdate"));
+        List<Production> list=this.hibernateTemplate.findByCriteria(detachedCriteria,0,10);
+        return list;
+    }
+
+    public List<Production> findNew() {
+        DetachedCriteria criteria=DetachedCriteria.forClass(Production.class);
+        criteria.addOrder(Order.desc("pdate"));
+        List<Production> list=this.hibernateTemplate.findByCriteria(criteria,0,10);
+        return list;
+    }
 
     public int findCountCid(Integer cid) {
         String hql = "select count(*) from Production p where p.categorySecond.category.cid=?";

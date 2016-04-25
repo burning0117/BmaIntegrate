@@ -9,6 +9,9 @@
             <result name="addUI">WEB-INF/jsp/production/add.jsp</result>
             <result name="updateUI">WEB-INF/jsp/production/update.jsp</result>
             <result name="action2action" type="redirectAction">productionAction_getAllProduction.action</result>
+            <result name="findByPid">WEB-INF/jsp/production/product.jsp</result>
+            <result name="findByCid">WEB-INF/jsp/production/productList.jsp</result>
+            <result name="findByCsid">WEB-INF/jsp/production/productList.jsp</result>
         </action>
     </package>
 </struts>

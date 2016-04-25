@@ -3,6 +3,7 @@ package service;
 import dao.PreuserDao;
 import domain.Preuser;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import utils.MailUitls;
 import utils.PageBean;
 import utils.UUIDUtils;
@@ -20,7 +21,7 @@ public class PreUserServiceImpl implements PreuserService{
     public Preuser findByUserName(String username) {
         return this.preuserDao.getUserByName(username);
     }
-
+    @Transactional(readOnly = false)
     public void savePreuser(Preuser preuser) {
         preuser.setState(0);
         String code= UUIDUtils.getUUID()+UUIDUtils.getUUID();
@@ -28,7 +29,7 @@ public class PreUserServiceImpl implements PreuserService{
         preuserDao.saveEntry(preuser);
         MailUitls.sendMail(preuser.getEmail(), code);
     }
-
+    @Transactional(readOnly = false)
     public void updatePreuser(Preuser preuser) {
        this.preuserDao.updateEntry(preuser);
     }
@@ -65,7 +66,7 @@ public class PreUserServiceImpl implements PreuserService{
     public Preuser findByUid(Integer uid) {
         return (Preuser) preuserDao.getEntryById(uid);
     }
-
+    @Transactional(readOnly = false)
     public void deletePreuser(Preuser existPreuser) {
         this.preuserDao.deleteEntry(existPreuser);
     }

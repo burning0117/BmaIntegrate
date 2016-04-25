@@ -22,6 +22,8 @@
             <file>jar://$USER_HOME$/lib/struts2/struts2-core-2.1.8.1.jar!/struts-default.xml</file>
             <file>file://$MODULE_DIR$/src/main/resources/struts/struts-plugin.xml</file>
             <file>file://$MODULE_DIR$/src/main/resources/struts/struts-preuser.xml</file>
+            <file>file://$MODULE_DIR$/src/main/resources/struts/struts-checkImg.xml</file>
+            <file>file://$MODULE_DIR$/src/main/resources/struts/struts-cart.xml</file>
           </fileset>
           <propertiesKeys disabled="false" />
         </configuration>

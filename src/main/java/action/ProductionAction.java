@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import service.ProductionService;
 import service.SellerService;
 import utils.DeleteMode;
+import utils.PageBean;
 
 import javax.annotation.Resource;
 import java.util.Collection;
@@ -24,6 +25,18 @@ public class ProductionAction extends BaseAction<Production> {
     @Resource(name = "sellerService")
     private SellerService sellerService;
     private Long sid;
+    private Integer csid;
+    private Integer cid;
+    private int page;
+    private Production production;
+
+    public Production getProduction() {
+        return production;
+    }
+
+    public void setProduction(Production production) {
+        this.production = production;
+    }
 
     public Long getSid() {
         return sid;
@@ -31,6 +44,30 @@ public class ProductionAction extends BaseAction<Production> {
 
     public void setSid(Long sid) {
         this.sid = sid;
+    }
+
+    public Integer getCid() {
+        return cid;
+    }
+
+    public void setCid(Integer cid) {
+        this.cid = cid;
+    }
+
+    public Integer getCsid() {
+        return csid;
+    }
+
+    public void setCsid(Integer csid) {
+        this.csid = csid;
+    }
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
     }
 
     public String getAllProduction() {
@@ -64,7 +101,7 @@ public class ProductionAction extends BaseAction<Production> {
         Production production = this.productionService.getProductionById(this.getModel().getPid());
         ActionContext.getContext().getValueStack().getRoot().add(0, production);
 //        ActionContext.getContext().put("production",production);
-        ActionContext.getContext().put("sellerList",sellerList);
+        ActionContext.getContext().put("sellerList", sellerList);
 //        ActionContext.getContext().getValueStack().getRoot().add(1, sellerList);
         return updateUI;
     }
@@ -76,5 +113,19 @@ public class ProductionAction extends BaseAction<Production> {
         production.setSeller(seller);
         this.productionService.updateProduction(production);
         return action2action;
+    }
+    public String findByPid(){
+        production=productionService.getProductionById(production.getPid());
+        return "findByPid";
+    }
+    public String findByCid(){
+        PageBean<Production> pageBean=this.productionService.getProductionByPageCid(cid, page);
+        ActionContext.getContext().getValueStack().set("pageBean",pageBean);
+        return "findByCid";
+    }
+    public String findByCsid(){
+        PageBean<Production> pageBean=this.productionService.getProductionByPageCsid(csid,page);
+        ActionContext.getContext().getValueStack().set("pageBean",pageBean);
+        return "findByCsid";
     }
 }

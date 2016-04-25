@@ -5,11 +5,14 @@ import utils.PageBean;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by lily on 2016/4/5.
  */
 public interface ProductionService{
+    public List<Production> findNew();
+    public List<Production> findHot();
     public void saveProduction(Production production);
     public void deleteProduction(Serializable id, String deleteMode);
     public void updateProduction(Production production);

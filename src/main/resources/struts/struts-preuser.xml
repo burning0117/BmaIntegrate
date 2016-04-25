@@ -13,4 +13,9 @@
             <result name="checkcodeFail">WEB-INF/jsp/regist/regist.jsp</result>
         </action>
     </package>
+    <package name="preuserJson" namespace="/" extends="json-default">
+        <action name="preuserJSONAction_*" method="{1}" class="action.PreuserAction">
+            <result type="json"/>
+        </action>
+    </package>
 </struts>

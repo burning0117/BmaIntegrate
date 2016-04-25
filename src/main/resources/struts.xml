@@ -14,6 +14,8 @@
     <include file="struts/struts-order.xml"/>
     <include file="struts/struts-production.xml"/>
     <include file="struts/struts-preuser.xml"/>
+    <include file="struts/struts-checkImg.xml"/>
+    <include file="struts/struts-cart.xml"/>
     <!--<include file="struts/struts-plugin.xml"/>-->
     <!--<package name="ajax" extends="struts-default">-->
         <!--<result-types>-->

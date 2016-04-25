@@ -47,7 +47,9 @@ public class CartAction extends BaseAction<Cart>{
         }
         return cart;
     }
-
+    public String myCart(){
+        return "myCart";
+    }
     public Long getPid() {
         return pid;
     }

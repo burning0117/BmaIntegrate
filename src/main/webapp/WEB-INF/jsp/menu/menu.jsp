@@ -5,9 +5,9 @@
 		<ul>
 			<s:if test="#session.existUser == null">
 			<li id="headerLogin" class="headerLogin" style="display: list-item;">
-				<a href="${ pageContext.request.contextPath }/user_loginPage.action">登录</a>|</li>
+				<a href="${ pageContext.request.contextPath }/preuserAction_loginPage.action">登录</a>|</li>
 			<li id="headerRegister" class="headerRegister"
-				style="display: list-item;"><a href="${ pageContext.request.contextPath }/user_registPage.action">注册</a>|
+				style="display: list-item;"><a href="${ pageContext.request.contextPath }/preuserAction_registPage.action">注册</a>|
 			</li>
 			</s:if>
 			<s:else>
@@ -28,7 +28,7 @@
 		</ul>
 	</div>
 	<div class="cart">
-		<a href="${ pageContext.request.contextPath }/cart_myCart.action">购物车</a>
+		<a href="${ pageContext.request.contextPath }/cartAction_myCart.action">购物车</a>
 	</div>
 	<div class="phone">
 		客服热线: <strong>96008/53277764</strong>

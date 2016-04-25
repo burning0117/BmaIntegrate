@@ -17,6 +17,7 @@ public class Production implements Serializable {
     private BigDecimal pqos;
     private String image;
     private Seller seller;
+    private Integer is_hot;
     private Date pdate;
     private CategorySecond categorySecond;
 
@@ -26,6 +27,14 @@ public class Production implements Serializable {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Integer getIs_hot() {
+        return is_hot;
+    }
+
+    public void setIs_hot(Integer is_hot) {
+        this.is_hot = is_hot;
     }
 
     public Date getDate() {
