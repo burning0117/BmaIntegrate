@@ -48,7 +48,7 @@
 			}
 		}
 		// 3.打开连接
-		xhr.open("GET","${pageContext.request.contextPath}/user_findByName.action?time="+new Date().getTime()+"&username="+username,true);
+		xhr.open("GET","${pageContext.request.contextPath}/preuser_findByName.action?time="+new Date().getTime()+"&amp;name="+name,true);
 		// 4.发送
 		xhr.send(null);
 	}
@@ -93,7 +93,7 @@
 					<img src="${pageContext.request.contextPath}/image/header.jpg" width="320" height="50" alt="正品保障" title="正品保障">
 </div>	</div>
 	
-	<%@ include file="menu.jsp" %>
+	<%@ include file="../menu/menu.jsp" %>
 
 </div>	<div class="container register">
 		<div class="span24">

@@ -22,7 +22,7 @@ public class PreUserServiceImpl implements PreuserService{
     }
 
     public void savePreuser(Preuser preuser) {
-        preuser.setState((long) 0);
+        preuser.setState(0);
         String code= UUIDUtils.getUUID()+UUIDUtils.getUUID();
         preuser.setCode(code);
         preuserDao.saveEntry(preuser);

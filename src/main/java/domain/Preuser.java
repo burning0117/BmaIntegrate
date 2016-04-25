@@ -13,7 +13,7 @@ public class Preuser implements Serializable{
    private String email;
    private String phone;
    private String address;
-   private Long state;
+   private Integer state;
    private String code;
    private Set<Order> orders;
 
@@ -73,11 +73,11 @@ public class Preuser implements Serializable{
       this.address = address;
    }
 
-   public Long getState() {
+   public Integer getState() {
       return state;
    }
 
-   public void setState(Long state) {
+   public void setState(Integer state) {
       this.state = state;
    }
 

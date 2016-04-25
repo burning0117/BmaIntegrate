@@ -48,7 +48,7 @@
 
                 </div>
                 <div><s:actionerror/></div>
-                <form id="loginForm" action="${ pageContext.request.contextPath }/user_login.action" method="post"
+                <form id="loginForm" action="${ pageContext.request.contextPath }/preuserAction_login.action" method="post"
                       novalidate="novalidate">
                     <table>
                         <tbody>
@@ -89,7 +89,7 @@
                                     <dt>还没有注册账号？</dt>
                                     <dd>
                                         立即注册即可体验在线购物！
-                                        <a href="${ pageContext.request.contextPath }/user_registPage.action">立即注册</a>
+                                        <a href="${ pageContext.request.contextPath }/preuserAction_registPage.action">立即注册</a>
                                     </dd>
                                 </dl>
                             </td>
