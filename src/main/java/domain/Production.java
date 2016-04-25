@@ -52,6 +52,14 @@ public class Production implements Serializable {
         this.categorySecond = categorySecond;
     }
 
+    public Date getPdate() {
+        return pdate;
+    }
+
+    public void setPdate(Date pdate) {
+        this.pdate = pdate;
+    }
+
     public Long getPid() {
         return pid;
     }

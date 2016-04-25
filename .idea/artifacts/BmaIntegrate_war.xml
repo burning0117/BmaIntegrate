@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="BmaIntegrate:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="zhang.war">
-      <element id="artifact" artifact-name="BmaIntegrate:war exploded" />
-    </root>
-  </artifact>
-</component>
