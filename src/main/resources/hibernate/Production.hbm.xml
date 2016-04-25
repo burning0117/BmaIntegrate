@@ -14,8 +14,12 @@
         <property name="preputationrate" type="java.math.BigDecimal" length="20"></property>
         <property name="pqos" type="java.math.BigDecimal" length="20"></property>
         <property name="image" type="java.lang.String" length="100"></property>
+        <property name="pdate" type="java.util.Date"></property>
         <many-to-one name="categorySecond" class="domain.CategorySecond" unique="true">
             <column name="csid"></column>
+        </many-to-one>
+        <many-to-one name="seller" class="domain.Seller" unique="true">
+            <column name="sid"></column>
         </many-to-one>
     </class>
 </hibernate-mapping>

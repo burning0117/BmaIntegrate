@@ -1,6 +1,7 @@
 package service;
 
 import domain.Production;
+import utils.PageBean;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -14,4 +15,7 @@ public interface ProductionService{
     public void updateProduction(Production production);
     public Collection<Production> getAllProductions();
     public Production getProductionById(Serializable id);
+    public PageBean<Production> getProductionByPageCid(Integer id,int page);
+    public PageBean<Production> getProductionByPageCsid(Integer csid,int page);
+    public PageBean<Production> getProductionByPage(Integer page);
 }

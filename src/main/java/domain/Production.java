@@ -2,6 +2,7 @@ package domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * Created by lily on 2016/4/3.
@@ -14,8 +15,9 @@ public class Production implements Serializable {
     private BigDecimal preputation;
     private BigDecimal preputationrate;
     private BigDecimal pqos;
-    private Seller seller;
     private String image;
+    private Seller seller;
+    private Date pdate;
     private CategorySecond categorySecond;
 
     public String getImage() {
@@ -24,6 +26,22 @@ public class Production implements Serializable {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Date getDate() {
+        return pdate;
+    }
+
+    public void setDate(Date pdate) {
+        this.pdate = pdate;
+    }
+
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
     }
 
     public CategorySecond getCategorySecond() {
@@ -90,11 +108,4 @@ public class Production implements Serializable {
         this.pqos = pqos;
     }
 
-    public Seller getSeller() {
-        return seller;
-    }
-
-    public void setSeller(Seller seller) {
-        this.seller = seller;
-    }
 }

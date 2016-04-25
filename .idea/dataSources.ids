@@ -19,6 +19,7 @@
       <column name="cid" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="csid"/>
       <foreign-key name="FK936FCAF2357FDBC6" columns="cid" ref-table="category" ref-schema="" ref-catalog="bma" ref-columns="cid" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK687CF0B9B0CEE327" table="production" schema="" catalog="bma" columns="csid"/>
       <index name="FK936FCAF2357FDBC6" unique="false" columns="cid"/>
     </table>
     <table name="good" schema="" catalog="bma" type="TABLE">
@@ -86,8 +87,12 @@
       <column name="preputationrate" sqlType="DECIMAL" precision="2" scale="2" nullable="true" jdbcType="3"/>
       <column name="pqos" sqlType="DECIMAL" precision="2" scale="2" nullable="true" jdbcType="3"/>
       <column name="sid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="image" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="csid" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="pid"/>
+      <foreign-key name="FK687CF0B9B0CEE327" columns="csid" ref-table="categorysecond" ref-schema="" ref-catalog="bma" ref-columns="csid" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="production_ibfk_1" columns="sid" ref-table="seller" ref-schema="" ref-catalog="bma" ref-columns="sid" update-rule="0" delete-rule="2" deferrability="2"/>
+      <index name="FK687CF0B9B0CEE327" unique="false" columns="csid"/>
       <index name="FK687CF0B9FE009994" unique="false" columns="pid"/>
     </table>
     <table name="seller" schema="" catalog="bma" type="TABLE">
