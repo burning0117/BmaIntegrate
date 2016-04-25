@@ -13,5 +13,5 @@ public interface PreuserDao<T> extends BaseDao<T> {
     public Preuser findByCode(String code);
     public List<Preuser> findByPage(int begin,int limit);
     public int findCount();
-    public Preuser login(User user);
+    public Preuser login(Preuser preuser);
 }

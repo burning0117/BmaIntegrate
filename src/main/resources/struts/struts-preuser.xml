@@ -5,10 +5,12 @@
 <struts>
     <package name="preuser" namespace="/" extends="struts-default">
         <action name="preuserAction_*" method="{1}" class="preuserAction">
-            <result name="listAction">WEB-INF/jsp/user/list.jsp</result>
-            <result name="addUI">WEB-INF/jsp/user/add.jsp</result>
-            <result name="updateUI">WEB-INF/jsp/user/update.jsp</result>
-            <result name="action2action" type="redirectAction">userAction_getAllUser.action</result>
+            <result name="registPage">WEB-INF/jsp/regist/regist.jsp</result>
+            <result name="input">WEB-INF/jsp/regist/regist.jsp</result>
+            <result name="loginPage">WEB-INF/jsp/login/login.jsp</result>
+            <result name="loginSuccess" type="redirectAction">index</result>
+            <result name="quit" type="redirectAction">index</result>
+            <result name="checkcodeFail">WEB-INF/jsp/regist/regist.jsp</result>
         </action>
     </package>
 </struts>

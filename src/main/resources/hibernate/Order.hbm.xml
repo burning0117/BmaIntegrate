@@ -12,10 +12,15 @@
         <property name="pricerate" type="java.math.BigDecimal" length="20"></property>
         <property name="greputation" type="java.math.BigDecimal" length="20"></property>
         <property name="greputationrate" type="java.math.BigDecimal" length="20"></property>
+        <property name="phone" type="java.lang.String" length="20"></property>
         <property name="gqos" type="java.math.BigDecimal" length="20"></property>
         <property name="gqosrate" type="java.math.BigDecimal" length="20"></property>
         <many-to-one name="preuser" class="domain.Preuser" unique="true">
             <column name="puid"></column>
         </many-to-one>
+        <set name="orderItemList">
+            <key column="oid"></key>
+            <one-to-many class="domain.OrderItem"></one-to-many>
+        </set>
     </class>
 </hibernate-mapping>

@@ -20,5 +20,6 @@
                 <mapping resource="hibernate/Category.hbm.xml"/>
                 <mapping resource="hibernate/CategorySecond.hbm.xml"/>
                 <mapping resource="hibernate/OrderItem.hbm.xml"/>
+                <mapping resource="hibernate/AdminUser.hbm.xml"/>
         </session-factory>
 </hibernate-configuration>
