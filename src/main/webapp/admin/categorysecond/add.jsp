@@ -8,7 +8,7 @@
 	</HEAD>
 	
 	<body>
-		<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/adminCategorySecond_save.action" method="post">
+		<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/adminCategorySecondAction_save.action" method="post">
 			&nbsp;
 			<table cellSpacing="1" cellPadding="5" width="100%" align="center" bgColor="#eeeeee" style="border: 1px solid #8ba7e3" border="0">
 				<tr>
@@ -31,7 +31,7 @@
 					</td>
 					<td class="ta_01" bgColor="#ffffff" >
 						<select name="category.cid">
-							<s:iterator var="c" value="cList">
+							<s:iterator var="c" value="categoryList">
 								<option value="<s:property value="#c.cid"/>"><s:property value="#c.cname"/></option>
 							</s:iterator>
 						</select>

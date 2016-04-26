@@ -19,4 +19,5 @@ public interface OrderService {
     public Order getOrderById(Serializable id);
     public PageBean<Order> findByUid(Long uid,Integer page);
     public List<OrderItem> findOrderItem(Long oid);
+    public PageBean<Order> findAll(Integer page);
 }

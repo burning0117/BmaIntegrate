@@ -19,29 +19,35 @@ import java.util.Collection;
 public class AdminCategoryAction extends BaseAction<Category>{
     @Resource(name = "categoryService")
     private CategoryService categoryService;
-    public String getAllCategory(){
+    private Category category=new Category();
+    public String findAll(){
         Collection<Category> categoryList=categoryService.getAllCategory();
         ActionContext.getContext().put("categoryList",categoryList);
-        return listAction;
+        return "findAll";
     }
-    public String add(){
-        Category category=new Category();
-        BeanUtils.copyProperties(this.getModel(),category);
-        this.categoryService.saveCategory(category);
-        return action2action;
+    public String save(){
+        categoryService.saveCategory(this.getModel());
+        return "saveSuccess";
     }
-    public String deleteAdminCategory(){
-        this.categoryService.deleteCatory(this.getModel().getCid(), DeleteMode.DEL_PRE_RELEASE);
-        return action2action;
+    public String delete(){
+        category=categoryService.getCategoryById(this.getModel().getCid());
+        categoryService.deleteCatory(category.getCid(), DeleteMode.DEL_PRE_RELEASE);
+        return "deleteSuccess";
     }
     public String edit(){
-        Category category=categoryService.getCategoryById(this.getModel().getCid());
+        category=categoryService.getCategoryById(this.getModel().getCid());
         return "editSuccess";
     }
     public String update(){
-        Category category=this.categoryService.getCategoryById(this.getModel().getCid());
-        BeanUtils.copyProperties(this.getModel(),category);
-        this.categoryService.updateCatory(category);
-        return action2action;
+        categoryService.updateCatory(category);
+        return "updateSuccess";
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

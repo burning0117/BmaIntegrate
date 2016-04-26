@@ -63,7 +63,7 @@ public class PreUserServiceImpl implements PreuserService{
         return pageBean;
     }
 
-    public Preuser findByUid(Integer uid) {
+    public Preuser findByUid(Long uid) {
         return (Preuser) preuserDao.getEntryById(uid);
     }
     @Transactional(readOnly = false)

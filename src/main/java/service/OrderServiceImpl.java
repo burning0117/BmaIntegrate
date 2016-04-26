@@ -64,4 +64,27 @@ public class OrderServiceImpl implements OrderService {
     public List<OrderItem> findOrderItem(Long oid) {
         return orderDao.getOrderByOrderItem(oid);
     }
+
+    public PageBean<Order> findAll(Integer page) {
+        PageBean<Order> pageBean=new PageBean<Order>();
+        pageBean.setPage(page);
+        int limit=10;
+        pageBean.setLimit(limit);
+        int totalCount=orderDao.findCount();
+        pageBean.setTotalCount(totalCount);
+        int totalPage=0;
+        if (totalCount%limit==0){
+            totalPage=totalCount/limit;
+        }else {
+            totalPage=totalCount/limit+1;
+        }
+        pageBean.setTotalPage(totalPage);
+        int begin=(page-1)*limit;
+        List<Order> list=orderDao.getByPage(begin,limit);
+        pageBean.setList(list);
+        return pageBean;
+    }
+    public List<OrderItem> findOrderItem(Integer oid){
+        return orderDao.getOrderByOrderItem(oid);
+    }
 }

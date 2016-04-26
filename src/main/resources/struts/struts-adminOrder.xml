@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+        "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+    <package name="adminOrder" namespace="/" extends="struts-default">
+        <action name="adminOrderAction_*" method="{1}" class="action.AdminOrderAction">
+            <result name="findAll">/admin/order/list.jsp</result>
+            <result name="updateStateSuccess" type="redirectAction">adminOrderAction_findAll?page=1</result>
+            <result name="findOrderItem">/admin/order/orderItem.jsp</result>
+        </action>
+    </package>
+</struts>

@@ -4,7 +4,7 @@
         "http://struts.apache.org/dtds/struts-2.1.7.dtd">
 <struts>
     <package name="userAdmin" namespace="/" extends="struts-default">
-        <action name="userAdminAction_*" method="{1}" class="action.AdminUserAction">
+        <action name="userAdminAction_*" method="{1}" class="action.UserAdminAction">
             <result name="findAll">/admin/user/list.jsp</result>
             <result name="deleteSuccess" type="redirectAction">userAdminAction_findAll.action?page=1</result>
             <result name="editSuccess">/admin/user/edit.jsp</result>

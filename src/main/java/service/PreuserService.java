@@ -13,6 +13,6 @@ public interface PreuserService{
     public Preuser findByCode(String code);
     public Preuser login(Preuser preuser);
     public PageBean<Preuser> findByPage(Integer page);
-    public Preuser findByUid(Integer uid);
+    public Preuser findByUid(Long uid);
     public void deletePreuser(Preuser existPreuser);
 }

@@ -8,7 +8,7 @@
 	</HEAD>
 	
 	<body>
-		<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/userAdmin_update.action" method="post" >
+		<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/userAdminAction_update.action" method="post" >
 			<input type="hidden" name="uid" value="<s:property value="model.uid"/>" />
 			<input type="hidden" name="state" value="<s:property value="model.state"/>" />
 			<input type="hidden" name="code" value="<s:property value="model.code"/>" />

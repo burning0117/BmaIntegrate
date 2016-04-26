@@ -4,12 +4,12 @@
         "http://struts.apache.org/dtds/struts-2.1.7.dtd">
 <struts>
     <package name="adminProduction" namespace="/" extends="struts-default">
-        <action name="adminProduction_*" method="{1}" class="">
-            <result name="findAll">/admin/category/list.jsp</result>
-            <result name="saveSuccess" type="redirectAction">adminCategoryAction_findAll</result>
-            <result name="deleteSuccess" type="redirectAction">adminCategoryAction_findAll</result>
-            <result name="editSuccess" type="redirectAction">adminCategoryAction_findAll</result>
-            <result name="updateSuccess" type="redirectAction">adminCategoryAction_findAll</result>
+        <action name="adminProductionAction_*" method="{1}" class="action.AdminProductionAction">
+            <result name="findAll">/admin/product/list.jsp</result>
+            <result name="addPageSuccess">/admin/product/add.jsp</result>
+            <result name="saveSuccess" type="redirectAction">adminProduction_findAll.action?page=1</result>
+            <result name="deleteSuccess" type="redirectAction">adminProduction_findAll.action?page=1</result>
+            <result name="editSuccess" type="redirectAction">adminProduction_findAll.action?page=1</result>
         </action>
     </package>
 </struts>

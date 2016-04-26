@@ -23,7 +23,7 @@
 						}
 					}
 					// 3.打开连接
-					xhr.open("GET","${pageContext.request.contextPath}/adminOrder_findOrderItem.action?oid="+oid+"&time="+new Date().getTime(),true);
+					xhr.open("GET","${pageContext.request.contextPath}/adminOrderAction_findOrderItem.action?oid="+oid+"&time="+new Date().getTime(),true);
 					// 4.发送
 					xhr.send(null);
 					but.value = "关闭";
@@ -117,7 +117,7 @@
 													未付款
 												</s:if>
 												<s:if test="#o.state==2">
-													<a href="${ pageContext.request.contextPath }/adminOrder_updateState.action?oid=<s:property value="#o.oid"/>"><font color="blue">发货</font></a>
+													<a href="${ pageContext.request.contextPath }/adminOrderAction_updateState.action?oid=<s:property value="#o.oid"/>"><font color="blue">发货</font></a>
 												</s:if>
 												<s:if test="#o.state==3">
 													等待确认收货
@@ -143,12 +143,12 @@
 						<td colspan="7">
 							第<s:property value="pageBean.page"/>/<s:property value="pageBean.totalPage"/>页 
 							<s:if test="pageBean.page != 1">
-								<a href="${ pageContext.request.contextPath }/adminOrder_findAll.action?page=1">首页</a>|
-								<a href="${ pageContext.request.contextPath }/adminOrder_findAll.action?page=<s:property value="pageBean.page-1"/>">上一页</a>|
+								<a href="${ pageContext.request.contextPath }/adminOrderAction_findAll.action?page=1">首页</a>|
+								<a href="${ pageContext.request.contextPath }/adminOrderAction_findAll.action?page=<s:property value="pageBean.page-1"/>">上一页</a>|
 							</s:if>
 							<s:if test="pageBean.page != pageBean.totalPage">
-								<a href="${ pageContext.request.contextPath }/adminOrder_findAll.action?page=<s:property value="pageBean.page+1"/>">下一页</a>|
-								<a href="${ pageContext.request.contextPath }/adminOrder_findAll.action?page=<s:property value="pageBean.totalPage"/>">尾页</a>|
+								<a href="${ pageContext.request.contextPath }/adminOrderAction_findAll.action?page=<s:property value="pageBean.page+1"/>">下一页</a>|
+								<a href="${ pageContext.request.contextPath }/adminOrderAction_findAll.action?page=<s:property value="pageBean.totalPage"/>">尾页</a>|
 							</s:if>
 						</td>
 					</tr>

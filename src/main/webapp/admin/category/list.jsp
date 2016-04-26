@@ -50,7 +50,7 @@
 										删除
 									</td>
 								</tr>
-									<s:iterator var="c" value="cList" status="status">
+									<s:iterator var="c" value="categoryList" status="status">
 										<tr onmouseover="this.style.backgroundColor = 'white'"
 											onmouseout="this.style.backgroundColor = '#F5FAFE';">
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
@@ -62,13 +62,13 @@
 												<s:property value="#c.cname"/>
 											</td>
 											<td align="center" style="HEIGHT: 22px">
-												<a href="${ pageContext.request.contextPath }/adminCategory_edit.action?cid=<s:property value="#c.cid"/>">
+												<a href="${ pageContext.request.contextPath }/adminCategoryAction_edit.action?cid=<s:property value="#c.cid"/>">
 													<img src="${pageContext.request.contextPath}/images/i_edit.gif" border="0" style="CURSOR: hand">
 												</a>
 											</td>
 									
 											<td align="center" style="HEIGHT: 22px">
-												<a href="${ pageContext.request.contextPath }/adminCategory_delete.action?cid=<s:property value="#c.cid"/>">
+												<a href="${ pageContext.request.contextPath }/adminCategoryAction_delete.action?cid=<s:property value="#c.cid"/>">
 													<img src="${pageContext.request.contextPath}/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
 												</a>
 											</td>
