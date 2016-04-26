@@ -25,6 +25,7 @@ public class AdminCategorySecondAction extends BaseAction<CategorySecond>{
     private CategorySecondService categorySecondService;
 
     private CategorySecond categorySecond=new CategorySecond();
+    /*第一页需要查询出来*/
     private Integer page;
     public String findAll(){
         PageBean<CategorySecond> pageBean=categorySecondService.findByPage(page);
@@ -51,7 +52,7 @@ public class AdminCategorySecondAction extends BaseAction<CategorySecond>{
         return "editSuccess";
     }
     public String update(){
-        categorySecondService.updateCategorySecond(categorySecond);
+        categorySecondService.updateCategorySecond(this.getModel());
         return "updateSuccess";
     }
 

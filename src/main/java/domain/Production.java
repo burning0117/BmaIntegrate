@@ -9,65 +9,20 @@ import java.util.Date;
  */
 public class Production implements Serializable {
     private Long pid;
-    private String name;
+    private String pname;
+    private Double market_price;
+    private Double shop_price;
     private BigDecimal price;
     private BigDecimal pricerate;
     private BigDecimal preputation;
     private BigDecimal preputationrate;
     private BigDecimal pqos;
     private String image;
+    private String pdesc;
     private Seller seller;
     private Integer is_hot;
     private Date pdate;
     private CategorySecond categorySecond;
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public Integer getIs_hot() {
-        return is_hot;
-    }
-
-    public void setIs_hot(Integer is_hot) {
-        this.is_hot = is_hot;
-    }
-
-    public Date getDate() {
-        return pdate;
-    }
-
-    public void setDate(Date pdate) {
-        this.pdate = pdate;
-    }
-
-    public Seller getSeller() {
-        return seller;
-    }
-
-    public void setSeller(Seller seller) {
-        this.seller = seller;
-    }
-
-    public CategorySecond getCategorySecond() {
-        return categorySecond;
-    }
-
-    public void setCategorySecond(CategorySecond categorySecond) {
-        this.categorySecond = categorySecond;
-    }
-
-    public Date getPdate() {
-        return pdate;
-    }
-
-    public void setPdate(Date pdate) {
-        this.pdate = pdate;
-    }
 
     public Long getPid() {
         return pid;
@@ -77,12 +32,28 @@ public class Production implements Serializable {
         this.pid = pid;
     }
 
-    public String getName() {
-        return name;
+    public String getPname() {
+        return pname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPname(String pname) {
+        this.pname = pname;
+    }
+
+    public Double getMarket_price() {
+        return market_price;
+    }
+
+    public void setMarket_price(Double market_price) {
+        this.market_price = market_price;
+    }
+
+    public Double getShop_price() {
+        return shop_price;
+    }
+
+    public void setShop_price(Double shop_price) {
+        this.shop_price = shop_price;
     }
 
     public BigDecimal getPrice() {
@@ -125,4 +96,51 @@ public class Production implements Serializable {
         this.pqos = pqos;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getPdesc() {
+        return pdesc;
+    }
+
+    public void setPdesc(String pdesc) {
+        this.pdesc = pdesc;
+    }
+
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
+    }
+
+    public Integer getIs_hot() {
+        return is_hot;
+    }
+
+    public void setIs_hot(Integer is_hot) {
+        this.is_hot = is_hot;
+    }
+
+    public Date getPdate() {
+        return pdate;
+    }
+
+    public void setPdate(Date pdate) {
+        this.pdate = pdate;
+    }
+
+    public CategorySecond getCategorySecond() {
+        return categorySecond;
+    }
+
+    public void setCategorySecond(CategorySecond categorySecond) {
+        this.categorySecond = categorySecond;
+    }
 }

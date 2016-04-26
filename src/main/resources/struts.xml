@@ -21,4 +21,6 @@
     <include file="struts/struts-adminCategorySecond.xml"/>
     <include file="struts/struts-adminProduction.xml"/>
     <include file="struts/struts-adminUser.xml"/>
+    <include file="struts/struts-index.xml"/>
+    <include file="struts/struts-privilegeInterceptor.xml"/>
 </struts>

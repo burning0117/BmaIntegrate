@@ -50,7 +50,7 @@ public class ProductionServiceImpl implements ProductionService {
         return (Production) this.productionDao.getEntryById(id);
     }
 
-    public PageBean<Production> getProductionByPageCid(Integer id, int page) {
+    public PageBean<Production> getProductionByPageCid(Long id, int page) {
         PageBean<Production> pageBean=new PageBean<Production>();
         pageBean.setPage(page);
         int limit=8;
@@ -71,7 +71,7 @@ public class ProductionServiceImpl implements ProductionService {
         return pageBean;
     }
 
-    public PageBean<Production> getProductionByPageCsid(Integer csid, int page) {
+    public PageBean<Production> getProductionByPageCsid(Long csid, int page) {
         PageBean<Production> pageBean=new PageBean<Production>();
         pageBean.setPage(page);
         int limit=8;
@@ -82,7 +82,7 @@ public class ProductionServiceImpl implements ProductionService {
         return null;
     }
 
-    public PageBean<Production> getProductionByPage(Integer page) {
+    public PageBean<Production> getProductionByPage(int page) {
         PageBean<Production> pageBean=new PageBean<Production>();
         pageBean.setPage(page);
         int limit=10;
@@ -97,7 +97,7 @@ public class ProductionServiceImpl implements ProductionService {
             totalPage=totalCount/limit+1;
         }
         pageBean.setTotalPage(totalPage);
-        int begin=(page-1)*limit;
+        int begin= (int) ((page-1)*limit);
         List<Production> list=productionDao.findByPage(begin,limit);
         pageBean.setList(list);
         return pageBean;

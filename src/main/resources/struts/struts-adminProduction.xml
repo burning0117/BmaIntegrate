@@ -7,9 +7,10 @@
         <action name="adminProductionAction_*" method="{1}" class="action.AdminProductionAction">
             <result name="findAll">/admin/product/list.jsp</result>
             <result name="addPageSuccess">/admin/product/add.jsp</result>
-            <result name="saveSuccess" type="redirectAction">adminProduction_findAll.action?page=1</result>
-            <result name="deleteSuccess" type="redirectAction">adminProduction_findAll.action?page=1</result>
-            <result name="editSuccess" type="redirectAction">adminProduction_findAll.action?page=1</result>
+            <result name="saveSuccess" type="redirectAction">adminProductionAction_findAll?page=1</result>
+            <result name="deleteSuccess" type="redirectAction">adminProductionAction_findAll?page=1</result>
+            <result name="updateSuccess" type="redirectAction">adminProductionAction_findAll?page=1</result>
+            <result name="editSuccess">/admin/product/edit.jsp</result>
         </action>
     </package>
 </struts>

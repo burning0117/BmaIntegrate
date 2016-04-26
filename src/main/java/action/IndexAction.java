@@ -2,6 +2,7 @@ package action;
 
 import com.opensymphony.xwork2.ActionContext;
 import domain.Category;
+import domain.Production;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import service.CategoryService;
@@ -22,9 +23,11 @@ public class IndexAction extends BaseAction<Category>{
     private ProductionService productionService;
     public String execute(){
         List<Category> categoryList= (List<Category>) categoryService.getAllCategory();
-        ActionContext.getContext().getSession().put("categoryList",categoryList);
-//        List<Production> hotList=productionService
-        return null;
+        ActionContext.getContext().getSession().put("categoryList", categoryList);
+        List<Production> hotList=productionService.findHot();
+        ActionContext.getContext().getValueStack().set("hList",hotList);
+        List<Production> nList=productionService.findNew();
+        ActionContext.getContext().getValueStack().set("nList",nList);
+        return "index";
     }
-//    @Resource(name = "index")
 }

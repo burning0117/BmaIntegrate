@@ -30,6 +30,8 @@
             <file>file://$MODULE_DIR$/src/main/resources/struts/struts-adminProduction.xml</file>
             <file>file://$MODULE_DIR$/src/main/resources/struts/struts-adminOrder.xml</file>
             <file>file://$MODULE_DIR$/src/main/resources/struts/struts-userAdmin.xml</file>
+            <file>file://$MODULE_DIR$/src/main/resources/struts/struts-index.xml</file>
+            <file>file://$MODULE_DIR$/src/main/resources/struts/struts-privilegeInterceptor.xml</file>
           </fileset>
           <propertiesKeys disabled="false" />
         </configuration>

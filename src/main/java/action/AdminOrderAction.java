@@ -37,4 +37,12 @@ public class AdminOrderAction extends BaseAction<Order>{
         ActionContext.getContext().getValueStack().set("list",list);
         return "findOrderItem";
     }
+
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
 }

@@ -18,7 +18,7 @@ public interface ProductionService{
     public void updateProduction(Production production);
     public Collection<Production> getAllProductions();
     public Production getProductionById(Serializable id);
-    public PageBean<Production> getProductionByPageCid(Integer id,int page);
-    public PageBean<Production> getProductionByPageCsid(Integer csid,int page);
-    public PageBean<Production> getProductionByPage(Integer page);
+    public PageBean<Production> getProductionByPageCid(Long id,int page);
+    public PageBean<Production> getProductionByPageCsid(Long csid,int page);
+    public PageBean<Production> getProductionByPage(int page);
 }

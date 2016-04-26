@@ -7,10 +7,10 @@
         <action name="adminCategorySecondAction_*" method="{1}" class="action.AdminCategorySecondAction">
             <result name="findAll">/admin/categorysecond/list.jsp</result>
             <result name="addPage">/admin/categorysecond/add.jsp</result>
-            <result name="saveSuccess" type="redirectAction">adminCategorySecondAction_findAll.action</result>
-            <result name="deleteSuccess" type="redirectAction">adminCategorySecondAction_findAll.action</result>
-            <result name="editSuccess" type="redirectAction">adminCategorySecondAction_findAll.action</result>
-            <result name="updateSuccess" type="redirectAction">adminCategorySecondAction_findAll.action</result>
+            <result name="saveSuccess" type="redirectAction">adminCategorySecondAction_findAll?page=1</result>
+            <result name="deleteSuccess" type="redirectAction">adminCategorySecondAction_findAll?page=1</result>
+            <result name="editSuccess">/admin/categorysecond/edit.jsp</result>
+            <result name="updateSuccess" type="redirectAction">adminCategorySecondAction_findAll?page=1</result>
         </action>
     </package>
 </struts>

@@ -46,7 +46,9 @@ public class AdminProductionAction extends BaseAction<Production> {
         return "addPageSuccess";
     }
     public String save() throws IOException {
-        production.setDate(new Date());
+        production=this.getModel();
+        System.out.println(production.getPname()+"!!!!!!!!");
+        production.setPdate(new Date());
         if (upload!=null){
             String path= ServletActionContext.getServletContext().getRealPath("/products");
             File diskFile=new File(path+"//"+uploadFileName);
@@ -57,6 +59,7 @@ public class AdminProductionAction extends BaseAction<Production> {
         return "saveSuccess";
     }
     public String delete(){
+        production=this.getModel();
         production=productionService.getProductionById(production.getPid());
         String path= ServletActionContext.getServletContext().getRealPath("/"+production.getImage());
         File file=new File(path);
@@ -65,12 +68,13 @@ public class AdminProductionAction extends BaseAction<Production> {
         return "deleteSuccess";
     }
     public String edit(){
-        production=productionService.getProductionById(production.getPid());
+        production=productionService.getProductionById(this.getModel().getPid());
         List<CategorySecond> categorySecondList=categorySecondService.getAllCategorySecond();
         ActionContext.getContext().getValueStack().set("csList", categorySecondList);
         return "editSuccess";
     }
     public String update() throws IOException {
+        production=this.getModel();
         production.setPdate(new Date());
         if (upload!=null){
             String delpath= ServletActionContext.getServletContext().getRealPath("/"+production.getImage());

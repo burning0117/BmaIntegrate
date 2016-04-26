@@ -7,7 +7,7 @@
             <column name="pid"></column>
             <generator class="increment"></generator>
         </id>
-        <property name="name" type="java.lang.String" length="20"></property>
+        <property name="pname" type="java.lang.String" length="20"></property>
         <property name="price" type="java.math.BigDecimal" length="20"></property>
         <property name="pricerate" type="java.math.BigDecimal" length="20"></property>
         <property name="preputation" type="java.math.BigDecimal" length="20"></property>
@@ -15,7 +15,10 @@
         <property name="pqos" type="java.math.BigDecimal" length="20"></property>
         <property name="image" type="java.lang.String" length="100"></property>
         <property name="pdate" type="java.util.Date"></property>
-        <property name="is_hot" type="java.lang.Long" length="5"></property>
+        <property name="is_hot" type="java.lang.Integer" length="5"></property>
+        <property name="pdesc" type="java.lang.String" length="200"></property>
+        <property name="market_price" type="java.lang.Double"></property>
+        <property name="shop_price" type="java.lang.Double"></property>
         <many-to-one name="categorySecond" class="domain.CategorySecond" unique="true">
             <column name="csid"></column>
         </many-to-one>

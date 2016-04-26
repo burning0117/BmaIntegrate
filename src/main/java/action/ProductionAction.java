@@ -25,8 +25,8 @@ public class ProductionAction extends BaseAction<Production> {
     @Resource(name = "sellerService")
     private SellerService sellerService;
     private Long sid;
-    private Integer csid;
-    private Integer cid;
+    private Long csid;
+    private Long cid;
     private int page;
     private Production production;
 
@@ -46,19 +46,19 @@ public class ProductionAction extends BaseAction<Production> {
         this.sid = sid;
     }
 
-    public Integer getCid() {
+    public Long getCid() {
         return cid;
     }
 
-    public void setCid(Integer cid) {
+    public void setCid(Long cid) {
         this.cid = cid;
     }
 
-    public Integer getCsid() {
+    public Long getCsid() {
         return csid;
     }
 
-    public void setCsid(Integer csid) {
+    public void setCsid(Long csid) {
         this.csid = csid;
     }
 
@@ -115,6 +115,7 @@ public class ProductionAction extends BaseAction<Production> {
         return action2action;
     }
     public String findByPid(){
+        production=this.getModel();
         production=productionService.getProductionById(production.getPid());
         return "findByPid";
     }

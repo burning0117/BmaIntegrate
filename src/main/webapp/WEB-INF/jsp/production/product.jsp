@@ -29,7 +29,7 @@
 					<img src="image\r___________renleipic_01/header.jpg" alt="正品保障" title="正品保障" height="50" width="320">
 </div>	</div>
 	
-	<%@ include file="menu.jsp" %>
+	<%@ include file="../menu/menu.jsp" %>
 
 </div><div class="container productContent">
 		<div class="span6">
