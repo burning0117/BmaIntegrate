@@ -3,10 +3,14 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
         "http://struts.apache.org/dtds/struts-2.1.7.dtd">
 <struts>
-    <package name="adminUser" namespace="/" extends="struts-default">
+    <package name="adminUser" namespace="/" extends="privilegeInterceptor">
         <action name="adminUserAction_*" method="{1}" class="action.AdminUserAction">
             <result name="loginFail">/admin/index.jsp</result>
             <result name="loginSuccess" type="redirect">/admin/home.jsp</result>
+            <interceptor-ref name="privilegeInterceptor">
+                <param name="excludeMethods">login</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"/>
         </action>
     </package>
 </struts>

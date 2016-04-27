@@ -3,7 +3,7 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
         "http://struts.apache.org/dtds/struts-2.1.7.dtd">
 <struts>
-    <package name="adminCategorySecond" namespace="/" extends="struts-default">
+    <package name="adminCategorySecond" namespace="/" extends="privilegeInterceptor">
         <action name="adminCategorySecondAction_*" method="{1}" class="action.AdminCategorySecondAction">
             <result name="findAll">/admin/categorysecond/list.jsp</result>
             <result name="addPage">/admin/categorysecond/add.jsp</result>
@@ -11,6 +11,8 @@
             <result name="deleteSuccess" type="redirectAction">adminCategorySecondAction_findAll?page=1</result>
             <result name="editSuccess">/admin/categorysecond/edit.jsp</result>
             <result name="updateSuccess" type="redirectAction">adminCategorySecondAction_findAll?page=1</result>
+            <interceptor-ref name="privilegeInterceptor"/>
+            <interceptor-ref name="defaultStack"/>
         </action>
     </package>
 </struts>

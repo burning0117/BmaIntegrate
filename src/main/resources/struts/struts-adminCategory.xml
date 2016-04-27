@@ -3,13 +3,15 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
         "http://struts.apache.org/dtds/struts-2.1.7.dtd">
 <struts>
-    <package name="adminCategory" namespace="/" extends="struts-default">
+    <package name="adminCategory" namespace="/" extends="privilegeInterceptor">
         <action name="adminCategoryAction_*" method="{1}" class="action.AdminCategoryAction">
             <result name="findAll">/admin/category/list.jsp</result>
             <result name="saveSuccess" type="redirectAction">adminCategoryAction_findAll.action</result>
             <result name="deleteSuccess" type="redirectAction">adminCategoryAction_findAll.action</result>
             <result name="editSuccess">/admin/category/edit.jsp</result>
             <result name="updateSuccess" type="redirectAction">adminCategoryAction_findAll.action</result>
+            <interceptor-ref name="privilegeInterceptor"/>
+            <interceptor-ref name="defaultStack"/>
         </action>
     </package>
 </struts>

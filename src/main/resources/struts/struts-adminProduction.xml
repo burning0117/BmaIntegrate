@@ -3,7 +3,7 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
         "http://struts.apache.org/dtds/struts-2.1.7.dtd">
 <struts>
-    <package name="adminProduction" namespace="/" extends="struts-default">
+    <package name="adminProduction" namespace="/" extends="privilegeInterceptor">
         <action name="adminProductionAction_*" method="{1}" class="action.AdminProductionAction">
             <result name="findAll">/admin/product/list.jsp</result>
             <result name="addPageSuccess">/admin/product/add.jsp</result>
@@ -11,6 +11,8 @@
             <result name="deleteSuccess" type="redirectAction">adminProductionAction_findAll?page=1</result>
             <result name="updateSuccess" type="redirectAction">adminProductionAction_findAll?page=1</result>
             <result name="editSuccess">/admin/product/edit.jsp</result>
+            <interceptor-ref name="privilegeInterceptor"/>
+            <interceptor-ref name="defaultStack"/>
         </action>
     </package>
 </struts>

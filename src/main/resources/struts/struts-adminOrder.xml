@@ -3,11 +3,13 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
         "http://struts.apache.org/dtds/struts-2.1.7.dtd">
 <struts>
-    <package name="adminOrder" namespace="/" extends="struts-default">
+    <package name="adminOrder" namespace="/" extends="privilegeInterceptor">
         <action name="adminOrderAction_*" method="{1}" class="action.AdminOrderAction">
             <result name="findAll">/admin/order/list.jsp</result>
             <result name="updateStateSuccess" type="redirectAction">adminOrderAction_findAll?page=1</result>
             <result name="findOrderItem">/admin/order/orderItem.jsp</result>
+            <interceptor-ref name="privilegeInterceptor"/>
+            <interceptor-ref name="defaultStack"/>
         </action>
     </package>
 </struts>
