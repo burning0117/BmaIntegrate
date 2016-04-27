@@ -19,6 +19,10 @@
         <property name="pdesc" type="java.lang.String" length="200"></property>
         <property name="market_price" type="java.lang.Double"></property>
         <property name="shop_price" type="java.lang.Double"></property>
+        <property name="core" type="java.lang.Integer" length="5"></property>
+        <property name="ram" type="java.lang.Double"></property>
+        <property name="disk" type="java.lang.Double"></property>
+        <property name="priceHour" type="java.lang.Double"></property>
         <many-to-one name="categorySecond" class="domain.CategorySecond" unique="true">
             <column name="csid"></column>
         </many-to-one>

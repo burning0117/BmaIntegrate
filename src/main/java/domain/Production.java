@@ -18,11 +18,23 @@ public class Production implements Serializable {
     private BigDecimal preputationrate;
     private BigDecimal pqos;
     private String image;
+    private Integer core;//CPU核心数
+    private Double ram;//内存大小
+    private Double disk;//磁盘大小
+    private Double priceHour;//云服务或批处理每小时话费的金钱
     private String pdesc;
     private Seller seller;
     private Integer is_hot;
     private Date pdate;
     private CategorySecond categorySecond;
+
+    public Double getPriceHour() {
+        return priceHour;
+    }
+
+    public void setPriceHour(Double priceHour) {
+        this.priceHour = priceHour;
+    }
 
     public Long getPid() {
         return pid;
@@ -30,6 +42,30 @@ public class Production implements Serializable {
 
     public void setPid(Long pid) {
         this.pid = pid;
+    }
+
+    public Integer getCore() {
+        return core;
+    }
+
+    public void setCore(Integer core) {
+        this.core = core;
+    }
+
+    public Double getRam() {
+        return ram;
+    }
+
+    public void setRam(Double ram) {
+        this.ram = ram;
+    }
+
+    public Double getDisk() {
+        return disk;
+    }
+
+    public void setDisk(Double disk) {
+        this.disk = disk;
     }
 
     public String getPname() {

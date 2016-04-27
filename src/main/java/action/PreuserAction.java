@@ -21,15 +21,15 @@ import java.io.IOException;
 public class PreuserAction extends BaseAction<Preuser>{
     @Resource(name = "preuserService")
     private PreuserService preuserService;
-    private Preuser preuser=new Preuser();
+    private Preuser preuser;
     private String checkcode;
     public String registPage(){
         return "registPage";
     }
     public String message;
     public String findByName()throws IOException{
+        System.out.println("hahhaha");
         Preuser user=this.preuserService.findByUserName(this.getModel().getUsername());
-        System.out.println("111111");
         if (user==null){
             this.message="该用户名可以使用";
         }else {
@@ -43,6 +43,7 @@ public class PreuserAction extends BaseAction<Preuser>{
             this.addActionError("验证码输入错误");
             return "checkcodeFail";
         }
+        preuser=this.getModel();
         preuserService.savePreuser(preuser);
         this.addActionMessage("注册成功！请去邮箱激活");
         return "msg";
@@ -63,7 +64,7 @@ public class PreuserAction extends BaseAction<Preuser>{
         return "loginPage";
     }
     public String login(){
-        Preuser existUser=preuserService.login(preuser);
+        Preuser existUser=preuserService.login(this.getModel());
         if (existUser==null){
             this.addActionError("登录失败：用户名或密码错误或用户未激活");
             return LOGIN;

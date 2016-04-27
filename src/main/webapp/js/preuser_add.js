@@ -26,7 +26,6 @@ var user = {
     },
 
     initEvent: function () {
-        alert("aaaa");
         var filter =this.filter.userFilter;
         var userFormError=this.setting.userFormatError;
         $("input[name='username']").unbind("blur");
@@ -39,13 +38,13 @@ var user = {
             }
         });
     },
-    checkUser: function (name) {
+    checkUser: function (username) {
         var nameSuccess = this.setting.nameSuccess;
         var errorColor = this.setting.errorColor;
         var correctColor = this.setting.correctColor;
         var unKnowError=this.setting.unKnowError;
         var parameter = {
-            name: name
+            username: username
         };
         $.ajax({
             type: "POST",
@@ -74,10 +73,10 @@ var user = {
         $("input[name='email']").bind("blur", function () {
             var email = $("input[name='email']").val();
             if (filter.test(email)) {
-                $("#email").text(emailSuccess).css("color", correctColor);
+                $("#span4").text(emailSuccess).css("color", correctColor);
                 return true;
             } else {
-                $("#email").text(emailError).css("color", errorColor);
+                $("#span4").text(emailError).css("color", errorColor);
                 return false;
             }
         });
@@ -92,10 +91,10 @@ var user = {
         $("input[name='password']").bind("blur", function () {
             var password2 = $("input[name='password']").val();
             if (filter.test(password2)) {
-                $("#password").text(passwordSuccess).css("color", correctColor);
+                $("#span2").text(passwordSuccess).css("color", correctColor);
                 return true;
             } else {
-                $("#password").text(passwordError).css("color", errorColor);
+                $("#span2").text(passwordError).css("color", errorColor);
                 return false;
             }
         });
@@ -105,12 +104,12 @@ var user = {
         var password2Success = this.setting.password2Success;
         var correcrColor = this.setting.correctColor;
         var errorColor = this.setting.errorColor;
-        $("input[name='password2']").unbind("blur");
-        $("input[name='password2']").bind("blur", function () {
-            if ($("input[name='password']").val() != $("input[name ='password2']")) {
-                $("#password2").text(password2Error).css("color", errorColor);
+        $("input[name='repassword']").unbind("blur");
+        $("input[name='repassword']").bind("blur", function () {
+            if ($("input[name='password']").val() != $("input[name ='repassword']").val()) {
+                $("#span3").text(password2Error).css("color", errorColor);
             } else {
-                $("#password2").text(password2Success).css("color", correcrColor);
+                $("#span3").text(password2Success).css("color", correcrColor);
             }
         });
     },
@@ -124,36 +123,18 @@ var user = {
         $("input[name='phone']").bind("blur", function () {
             var phone = $("input[name='phone']").val();
             if (filter.test(phone)) {
-                $("#phone").text(phoneSuccess).css("color", correctColor);
+                $("#span5").text(phoneSuccess).css("color", correctColor);
             } else {
-                $("#phone").text(phoneError).css("color", errorColor);
+                $("#span5").text(phoneError).css("color", errorColor);
             }
         });
 
     },
-    checkUserReputation: function () {
-        var correctReputation = this.setting.correctReputation;
-        var errorReputation = this.setting.errorReputation;
-        var correctColor = this.setting.correctColor;
-        var errorColor = this.setting.errorColor;
-        var filter=this.filter.userReputationFilter
-        $("input[name='ureputation']").unbind("blur");
-        $("input[name='ureputation']").bind("blur", function () {
-            var reputation = $(this).val();
-            if (filter.test(reputation)) {
-                $("#ureputation").text(correctReputation).css("color", correctColor);
-            } else {
-                $("#ureputation").text(errorReputation).css("color", errorColor);
-            }
-        });
-    }
 };
 $().ready(function () {
-    alert("aaaaa");
     user.initEvent();
-    //user.checkMail();
-    //user.checkPassword();
-    //user.checkPassword2();
-    //user.checkPhoneNumber();
-    //user.checkUserReputation();
+    user.checkMail();
+    user.checkPassword();
+    user.checkPassword2();
+    user.checkPhoneNumber();
 });

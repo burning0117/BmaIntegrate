@@ -42,7 +42,7 @@ public class ProductionDaoImpl extends BaseDaoImpl<Production> implements Produc
     }
 
     public List<Production> findByPageCid(Long cid, int begin, int limit) {
-        String hql = "select p from Product p join p.categorySecond cs join cs.category c where c.cid = ?";
+        String hql = "select p from Production p join p.categorySecond cs join cs.category c where c.cid = ?";
         List<Production> list = (List<Production>) this.hibernateTemplate.execute(new PageHibernateCallback<Production>(hql, new Object[]{cid}, begin, limit));
         if (list != null && list.size() > 0) {
             return list;

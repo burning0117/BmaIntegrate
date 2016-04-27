@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
+<%@ include file="/WEB-INF/jsp/common/common.jsp" %>
+<script src="${pageContext.request.contextPath}/js/preuser_add.js"></script>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -8,68 +10,6 @@
     <link href="${pageContext.request.contextPath}/css/common.css" rel="stylesheet" type="text/css"/>
     <link href="${pageContext.request.contextPath}/css/register.css" rel="stylesheet" type="text/css"/>
     <script>
-        function checkForm() {
-            // 校验用户名:
-            // 获得用户名文本框的值:
-            var username = document.getElementById("username").value;
-            alert(username + "111");
-            if (username == null || username == '') {
-                alert("用户名不能为空!");
-                return false;
-            }
-            // 校验密码:
-            // 获得密码框的值:
-            var password = document.getElementById("password").value;
-            if (password == null || password == '') {
-                alert("密码不能为空!");
-                return false;
-            }
-            // 校验确认密码:
-            var repassword = document.getElementById("repassword").value;
-            if (repassword != password) {
-                alert("两次密码输入不一致!");
-                return false;
-            }
-        }
-
-        function checkUsername(){
-            // 获得文件框值:
-            var username = document.getElementById("username").value;
-            // 1.创建异步交互对象
-            var xhr = createXmlHttp();
-            // 2.设置监听
-            xhr.onreadystatechange = function(){
-                if(xhr.readyState == 4){
-                    if(xhr.status == 200){
-                        document.getElementById("span1").innerHTML = xhr.responseText;
-                    }
-                }
-            }
-            // 3.打开连接
-            xhr.open("GET","${pageContext.request.contextPath}/user_findByName.action?time="+new Date().getTime()+"&username="+username,true);
-            // 4.发送
-            xhr.send(null);
-        }
-
-        function createXmlHttp(){
-            var xmlHttp;
-            try{ // Firefox, Opera 8.0+, Safari
-                xmlHttp=new XMLHttpRequest();
-            }
-            catch (e){
-                try{// Internet Explorer
-                    xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
-                }
-                catch (e){
-                    try{
-                        xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
-                    }
-                    catch (e){}
-                }
-            }
-
-            return xmlHttp;
-        }
         function change() {
             var img1 = document.getElementById("checkImg");
             img1.src = "${pageContext.request.contextPath}/checkImg.action?" + new Date().getTime();
@@ -124,9 +64,8 @@
                                 <span class="requiredField">*</span>密&nbsp;&nbsp;码:
                             </th>
                             <td>
-                                <input type="password" id="password" name="password" class="text" maxlength="20"
-                                       autocomplete="off"/>
-                                <span><s:fielderror fieldName="password"/></span>
+                                <input type="password" id="password" name="password" class="text" maxlength="20" autocomplete="off"/>
+                                <span id="span2"><s:fielderror fieldName="password"/></span>
                             </td>
                         </tr>
                         <tr>
@@ -134,8 +73,8 @@
                                 <span class="requiredField">*</span>确认密码:
                             </th>
                             <td>
-                                <input id="repassword" type="password" name="repassword" class="text" maxlength="20"
-                                       autocomplete="off"/>
+                                <input id="repassword" type="password" name="repassword" class="text" maxlength="20" autocomplete="off"/>
+                                <span id="span3"><s:fielderror fieldName="password"/></span>
                             </td>
                         </tr>
                         <tr>
@@ -144,7 +83,7 @@
                             </th>
                             <td>
                                 <input type="text" id="email" name="email" class="text" maxlength="200">
-                                <span><s:fielderror fieldName="email"/></span>
+                                <span id="span4"><s:fielderror fieldName="email"/></span>
                             </td>
                         </tr>
                         <tr>
@@ -163,6 +102,7 @@
                             </th>
                             <td>
                                 <input type="text" name="phone" class="text"/>
+                                <span id="span5"><s:fielderror fieldName="name"/></span>
                             </td>
                         </tr>
 

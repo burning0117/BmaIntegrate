@@ -33,7 +33,7 @@
 			</div>
 		</div>
 
-		<%@ include file="menu.jsp"%>
+		<%@ include file="../menu/menu.jsp"%>
 
 	</div>
 
