@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 @Controller("adminUserAction")
 @Scope("prototype")
 public class AdminUserAction extends BaseAction<AdminUser>{
-    @Resource
+    @Resource(name = "adminUserService")
     private AdminUserService adminUserService;
     public String login(){
         AdminUser existAdminUser=adminUserService.login(this.getModel());

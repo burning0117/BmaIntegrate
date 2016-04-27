@@ -23,10 +23,10 @@
         <property name="ram" type="java.lang.Double"></property>
         <property name="disk" type="java.lang.Double"></property>
         <property name="priceHour" type="java.lang.Double"></property>
-        <many-to-one name="categorySecond" class="domain.CategorySecond" unique="true">
+        <many-to-one name="categorySecond" class="domain.CategorySecond" lazy="false">
             <column name="csid"></column>
         </many-to-one>
-        <many-to-one name="seller" class="domain.Seller" unique="true">
+        <many-to-one name="seller" class="domain.Seller" lazy="false">
             <column name="sid"></column>
         </many-to-one>
     </class>

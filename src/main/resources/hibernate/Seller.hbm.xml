@@ -13,9 +13,9 @@
         <property name="address" type="java.lang.String" length="100"></property>
         <property name="description" type="java.lang.String" length="200"></property>
         <property name="sreputation" type="java.math.BigDecimal" length="2"></property>
-        <set name="production" cascade="all" inverse="true">
+        <set name="production">
             <key>
-                <column name="pid"></column>
+                <column name="sid"></column>
             </key>
             <one-to-many class="domain.Production"/>
         </set>

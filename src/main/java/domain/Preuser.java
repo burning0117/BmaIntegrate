@@ -1,6 +1,7 @@
 package domain;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Set;
 
 /**
@@ -16,6 +17,7 @@ public class Preuser implements Serializable{
    private String address;
    private Integer state;
    private String code;
+   private BigDecimal pureputation;
    private Set<Order> orders;
 
    public Set<Order> getOrders() {
@@ -40,6 +42,14 @@ public class Preuser implements Serializable{
 
    public void setUsername(String username) {
       this.username = username;
+   }
+
+   public BigDecimal getPureputation() {
+      return pureputation;
+   }
+
+   public void setPureputation(BigDecimal pureputation) {
+      this.pureputation = pureputation;
    }
 
    public String getName() {

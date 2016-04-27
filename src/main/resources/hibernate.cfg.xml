@@ -10,12 +10,11 @@
                 <property name="connection.username">root</property>
                 <property name="connection.password">Zhang123456</property>
                 <!--password-->
-                <!--<property name="hbm2ddl.auto">update</property>-->
+                <property name="hbm2ddl.auto">update</property>
                 <property name="show_sql">true</property>
                 <mapping resource="hibernate/Production.hbm.xml"/>
                 <mapping resource="hibernate/Seller.hbm.xml"/>
                 <mapping resource="hibernate/Order.hbm.xml"/>
-                <mapping resource="hibernate/User.hbm.xml"/>
                 <mapping resource="hibernate/Preuser.hbm.xml"/>
                 <mapping resource="hibernate/Category.hbm.xml"/>
                 <mapping resource="hibernate/CategorySecond.hbm.xml"/>

@@ -6,7 +6,7 @@ import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import service.OrderService;
-import service.UserService;
+import service.PreuserService;
 import utils.PageBean;
 import utils.PaymentUtil;
 
@@ -22,8 +22,8 @@ import java.util.Date;
 public class OrderAction extends BaseAction<Order>{
    @Resource(name = "orderService")
    private OrderService orderService;
-   @Resource(name = "userService")
-   private UserService userService;
+   @Resource(name = "preuserService")
+   private PreuserService preuserService;
    private String pd_FrpId;
    private String r3_Amt;
    private String r6_Order;
@@ -66,8 +66,8 @@ public class OrderAction extends BaseAction<Order>{
       return "saveOrder";
    }
    public String findByUid(){
-      User existUser= (User) ServletActionContext.getRequest().getSession().getAttribute("existUser");
-      Long uid=existUser.getUid();
+      Preuser existUser= (Preuser) ServletActionContext.getRequest().getSession().getAttribute("existUser");
+      Long uid=existUser.getPuid();
       PageBean<Order> pageBean=orderService.findByUid(uid,page);
       ActionContext.getContext().getValueStack().set("pageBean", pageBean);
       return "findByUid";

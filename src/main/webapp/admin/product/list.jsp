@@ -113,7 +113,7 @@
 							</s:if>
 							<s:if test="pageBean.page != pageBean.totalPage">
 								<a href="${ pageContext.request.contextPath }/adminProductionAction_findAll.action?page=<s:property value="pageBean.page+1"/>">下一页</a>|
-								<a href="${ pageContext.request.contextPath }/adminProductionACtion_findAll.action?page=<s:property value="pageBean.totalPage"/>">尾页</a>|
+								<a href="${ pageContext.request.contextPath }/adminProductionAction_findAll.action?page=<s:property value="pageBean.totalPage"/>">尾页</a>|
 							</s:if>
 						</td>
 					</tr>

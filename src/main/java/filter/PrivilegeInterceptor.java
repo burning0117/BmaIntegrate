@@ -13,7 +13,6 @@ public class PrivilegeInterceptor extends MethodFilterInterceptor{
     @Override
     protected String doIntercept(ActionInvocation actionInvocation) throws Exception {
         AdminUser adminUser= (AdminUser) ServletActionContext.getRequest().getSession().getAttribute("existAdminUser");
-        System.out.println(adminUser.getUsername()+"2222222");
         if (adminUser!=null){
             return actionInvocation.invoke();
         }else {

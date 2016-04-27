@@ -111,7 +111,7 @@
                                 地址:
                             </th>
                             <td>
-                                <input type="text" name="addr" class="text" maxlength="200"/>
+                                <input type="text" name="address" class="text" maxlength="200"/>
                                 <span><s:fielderror fieldName="addr"/></span>
                             </td>
                         </tr>
