@@ -5,8 +5,7 @@
 <struts>
     <package name="privilegeInterceptor" namespace="/" extends="struts-default">
         <interceptors>
-            <interceptor name="privilegeInterceptor" class="filter.PrivilegeInterceptor">
-            </interceptor>
+            <interceptor name="privilegeInterceptor" class="filter.PrivilegeInterceptor"></interceptor>
         </interceptors>
         <global-results>
             <result name="msg">/WEB-INF/jsp/msg/msg.jsp</result>
