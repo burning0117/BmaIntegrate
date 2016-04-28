@@ -29,7 +29,7 @@ public class MailUitls {
             /*设置标题*/
             message.setSubject("来自购物商城官方激活邮件");
             /*设置邮件正文*/
-            message.setContent("<h1>购物天堂传智商城官方激活邮件!点下面链接完成激活操作!</h1><h3><a href='http://192.168.36.103:8080/shop/user_active.action?code="+code+"'>http://192.168.36.103:8080/shop/user_active.action?code="+code+"</a></h3>", "text/html;charset=UTF-8");
+            message.setContent("<h1>购物天堂传智商城官方激活邮件!点下面链接完成激活操作!</h1><h3><a href='http://localhost:8080/preuserAction_active.action?code="+code+"'>http://localhost:8080/preuserAction_active.action?code="+code+"</a></h3>", "text/html;charset=UTF-8");
             /*发送邮件*/
             Transport.send(message);
         }catch (AddressException e){

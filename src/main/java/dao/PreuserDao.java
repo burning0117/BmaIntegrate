@@ -1,7 +1,6 @@
 package dao;
 
 import domain.Preuser;
-import domain.User;
 
 import java.util.List;
 

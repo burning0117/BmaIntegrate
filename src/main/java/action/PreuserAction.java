@@ -24,7 +24,6 @@ public class PreuserAction extends BaseAction<Preuser>{
     }
     public String message;
     public String findByName()throws IOException{
-        System.out.println("hahhaha");
         Preuser user=this.preuserService.findByUserName(this.getModel().getUsername());
         if (user==null){
             this.message="该用户名可以使用";
@@ -34,15 +33,17 @@ public class PreuserAction extends BaseAction<Preuser>{
         return SUCCESS;
     }
     public String regist(){
-        String checkCode= (String) ServletActionContext.getRequest().getSession().getAttribute("checkcode");
-        if (!checkCode.equalsIgnoreCase(checkCode)){
+        String checkcode1= (String) ServletActionContext.getRequest().getSession().getAttribute("checkcode");
+        System.out.println(checkcode1+"@@@@@@");
+        System.out.println(checkcode+"$$$$$$");
+        if (!checkcode1.equalsIgnoreCase(checkcode)){
             this.addActionError("验证码输入错误");
-            return "checkcodeFail";
+            return "checkCodeFail";
         }
         preuser=this.getModel();
         preuserService.savePreuser(preuser);
         this.addActionMessage("注册成功！请去邮箱激活");
-        return "msg";
+        return "loginPage";
     }
     public String active(){
         Preuser existUser=preuserService.findByCode(preuser.getCode());
@@ -63,14 +64,22 @@ public class PreuserAction extends BaseAction<Preuser>{
         Preuser existUser=preuserService.login(this.getModel());
         if (existUser==null){
             this.addActionError("登录失败：用户名或密码错误或用户未激活");
-            return LOGIN;
+            return "loginPage";
         }else {
             ServletActionContext.getRequest().getSession().setAttribute("existUser",existUser);
             return "loginSuccess";
         }
     }
     public String quit(){
-        ServletActionContext.getRequest().getSession().invalidate();;
+        ServletActionContext.getRequest().getSession().invalidate();
         return "quit";
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

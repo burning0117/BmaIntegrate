@@ -1,12 +1,9 @@
 package dao;
 
 import domain.Preuser;
-import domain.User;
 import org.springframework.stereotype.Repository;
 import utils.PageHibernateCallback;
 
-import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -48,8 +45,8 @@ public class PreuserDaoImpl extends BaseDaoImpl<Preuser> implements PreuserDao<P
     }
 
     public Preuser login(Preuser preuser) {
-        String hql="from Preuser where name=? and password=? and state=?";
-        List<Preuser> list=this.hibernateTemplate.find(hql,new Object[]{preuser.getName(),preuser.getPassword(),3});
+        String hql="from Preuser where username=? and password=? and state=?";
+        List<Preuser> list=this.hibernateTemplate.find(hql,new Object[]{preuser.getUsername(),preuser.getPassword(),3});
         if (list!=null&&list.size()>0){
             return list.get(0);
         }
