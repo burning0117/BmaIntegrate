@@ -16,6 +16,7 @@ public class Preuser implements Serializable{
    private String phone;
    private String address;
    private Integer state;
+   private String checkcode;
    private String code;
    private BigDecimal pureputation;
    private Set<Order> orders;
@@ -98,6 +99,14 @@ public class Preuser implements Serializable{
 
    public void setState(Integer state) {
       this.state = state;
+   }
+
+   public String getCheckcode() {
+      return checkcode;
+   }
+
+   public void setCheckcode(String checkcode) {
+      this.checkcode = checkcode;
    }
 
    public String getCode() {

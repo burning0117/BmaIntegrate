@@ -28,17 +28,17 @@ public class AdminCategorySecondAction extends BaseAction<CategorySecond>{
     /*第一页需要查询出来*/
     private Integer page;
     public String findAll(){
-        PageBean<CategorySecond> pageBean=categorySecondService.findByPage(page);
+        PageBean<CategorySecond> pageBean=this.categorySecondService.findByPage(page);
         ActionContext.getContext().getValueStack().set("pageBean",pageBean);
         return "findAll";
     }
     public String addPage(){
-        List<Category> categoryList= (List<Category>) categoryService.getAllCategory();
+        List<Category> categoryList= (List<Category>) this.categoryService.getAllCategory();
         ActionContext.getContext().getValueStack().set("categoryList",categoryList);
         return "addPage";
     }
     public String save(){
-        categorySecondService.saveCategorySecond(this.getModel());
+        this.categorySecondService.saveCategorySecond(this.getModel());
         return "saveSuccess";
     }
     public String delete(){
@@ -46,13 +46,13 @@ public class AdminCategorySecondAction extends BaseAction<CategorySecond>{
         return "deleteSuccess";
     }
     public String edit(){
-        categorySecond=categorySecondService.getCategorySecondByCsid(this.getModel().getCsid());
-        Collection<Category> categoryList=  categoryService.getAllCategory();
+        categorySecond=this.categorySecondService.getCategorySecondByCsid(this.getModel().getCsid());
+        Collection<Category> categoryList=this.categoryService.getAllCategory();
         ActionContext.getContext().getValueStack().set("categoryList",categoryList);
         return "editSuccess";
     }
     public String update(){
-        categorySecondService.updateCategorySecond(this.getModel());
+        this.categorySecondService.updateCategorySecond(this.getModel());
         return "updateSuccess";
     }
 

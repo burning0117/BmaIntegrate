@@ -34,8 +34,7 @@ public class PreuserAction extends BaseAction<Preuser>{
     }
     public String regist(){
         String checkcode1= (String) ServletActionContext.getRequest().getSession().getAttribute("checkcode");
-        System.out.println(checkcode1+"@@@@@@");
-        System.out.println(checkcode+"$$$$$$");
+        String checkcode=this.getModel().getCheckcode();
         if (!checkcode1.equalsIgnoreCase(checkcode)){
             this.addActionError("验证码输入错误");
             return "checkCodeFail";
@@ -43,16 +42,16 @@ public class PreuserAction extends BaseAction<Preuser>{
         preuser=this.getModel();
         preuserService.savePreuser(preuser);
         this.addActionMessage("注册成功！请去邮箱激活");
-        return "loginPage";
+        return "msg";
     }
     public String active(){
-        Preuser existUser=preuserService.findByCode(preuser.getCode());
+        Preuser existUser=preuserService.findByCode(this.getModel().getCode());
         if (existUser==null){
             this.addActionMessage("激活失败;激活码错误");
         }else {
             existUser.setState(1);
-            existUser.setCode(null);
-            preuserService.updatePreuser(preuser);
+            existUser.setCheckcode(null);
+            preuserService.updatePreuser(existUser);
             this.addActionMessage("激活成功:请去登录!");
         }
         return "msg";

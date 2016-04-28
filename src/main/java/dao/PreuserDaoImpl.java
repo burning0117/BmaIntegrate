@@ -46,7 +46,7 @@ public class PreuserDaoImpl extends BaseDaoImpl<Preuser> implements PreuserDao<P
 
     public Preuser login(Preuser preuser) {
         String hql="from Preuser where username=? and password=? and state=?";
-        List<Preuser> list=this.hibernateTemplate.find(hql,new Object[]{preuser.getUsername(),preuser.getPassword(),3});
+        List<Preuser> list=this.hibernateTemplate.find(hql,new Object[]{preuser.getUsername(),preuser.getPassword(),1});
         if (list!=null&&list.size()>0){
             return list.get(0);
         }

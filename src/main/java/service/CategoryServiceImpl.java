@@ -21,8 +21,8 @@ public class CategoryServiceImpl implements CategoryService{
         this.categoryDao.saveEntry(category);
     }
     @Transactional(readOnly = false)
-    public void deleteCatory(Serializable id, String deleteMode) {
-        this.categoryDao.deleteEntry(id);
+    public void deleteCatory(Category category) {
+        this.categoryDao.deleteEntry(category);
     }
     @Transactional(readOnly = false)
     public void updateCatory(Category category) {

@@ -28,7 +28,7 @@ public class SellerAction extends BaseAction<Seller> {
     }
 
     public String deleteSeller() {
-        this.sellerService.deleteSeller(this.getModel().getSid(), DeleteMode.DEL_PRE_RELEASE);
+        this.sellerService.deleteSeller(this.getModel());
         return action2action;
     }
 

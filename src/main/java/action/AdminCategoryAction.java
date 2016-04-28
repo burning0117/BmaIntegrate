@@ -31,7 +31,7 @@ public class AdminCategoryAction extends BaseAction<Category>{
     }
     public String delete(){
         category=categoryService.getCategoryById(this.getModel().getCid());
-        categoryService.deleteCatory(category.getCid(), DeleteMode.DEL_PRE_RELEASE);
+        categoryService.deleteCatory(category);
         return "deleteSuccess";
     }
     public String edit(){

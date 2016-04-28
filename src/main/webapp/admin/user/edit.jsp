@@ -9,7 +9,7 @@
 	
 	<body>
 		<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/userAdminAction_update.action" method="post" >
-			<input type="hidden" name="uid" value="<s:property value="model.uid"/>" />
+			<input type="hidden" name="puid" value="<s:property value="model.puid"/>" />
 			<input type="hidden" name="state" value="<s:property value="model.state"/>" />
 			<input type="hidden" name="code" value="<s:property value="model.code"/>" />
 			&nbsp;
@@ -61,7 +61,7 @@
 						地址：
 					</td>
 					<td class="ta_01" bgColor="#ffffff">
-						<input type="text" name="addr" value="<s:property value="model.addr"/>" id="userAction_save_do_logonName" class="bg"/>
+						<input type="text" name="addr" value="<s:property value="model.address"/>" id="userAction_save_do_logonName" class="bg"/>
 					</td>
 				</tr>
 			

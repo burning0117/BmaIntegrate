@@ -25,8 +25,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Transactional(readOnly = false)
-    public void deleteOrder(Serializable id, String deleteMode) {
-        this.orderDao.deleteEntry(id);
+    public void deleteOrder(Order order) {
+        this.orderDao.deleteEntry(order);
     }
 
     @Transactional(readOnly = false)

@@ -25,7 +25,7 @@ public class UserAdminAction extends BaseAction<Preuser>{
         return "findAll";
     }
     public String delete(){
-        Preuser existUser=preuserService.findByUid(this.getModel().getPuid());
+        Preuser existUser=this.preuserService.findByUid(this.getModel().getPuid());
         preuserService.deletePreuser(existUser);
         return "deleteSuccess";
     }

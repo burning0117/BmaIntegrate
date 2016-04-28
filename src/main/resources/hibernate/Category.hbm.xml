@@ -8,7 +8,7 @@
             <generator class="increment"></generator>
         </id>
         <property name="cname" type="java.lang.String" length="20"></property>
-        <set name="categorySecondSeList" cascade="all" inverse="true">
+        <set name="categorySeconds" cascade="all" inverse="true">
             <key column="cid"/>
             <one-to-many class="domain.CategorySecond"/>
         </set>

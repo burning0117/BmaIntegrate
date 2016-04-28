@@ -72,7 +72,6 @@ public class CheckImgAction extends ActionSupport {
 		// 将生成的字母存入到session中
 		ServletActionContext.getRequest().getSession()
 				.setAttribute("checkcode", sb.toString());
-
 		// 步骤五 绘制干扰线
 		graphics.setColor(getRandColor(160, 200));
 		int x1;

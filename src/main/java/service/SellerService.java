@@ -1,6 +1,5 @@
 package service;
 
-import dao.BaseDao;
 import domain.Seller;
 
 import java.io.Serializable;
@@ -11,7 +10,7 @@ import java.util.Collection;
  */
 public interface SellerService{
     public void saveSeller(Seller seller);
-    public void deleteSeller(Serializable id, String deleteMode);
+    public void deleteSeller(Seller seller);
     public void updateSeller(Seller seller);
     public Collection<Seller> getAllSeller();
     public Seller getSellerById(Serializable id);

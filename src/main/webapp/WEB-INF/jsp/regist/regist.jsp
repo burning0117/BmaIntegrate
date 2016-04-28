@@ -20,7 +20,7 @@
 <div class="container header">
     <div class="span5">
         <div class="logo">
-            <a href="http://localhost:8080/mango/">
+            <a href="http://localhost:8080">
                 <img src="${pageContext.request.contextPath}/image/r___________renleipic_01/logo.gif" alt="传智播客">
             </a>
         </div>
@@ -112,7 +112,7 @@
                             </th>
                             <td>
                                 <input type="text" name="address" class="text" maxlength="200"/>
-                                <span><s:fielderror fieldName="addr"/></span>
+                                <span><s:fielderror fieldName="address"/></span>
                             </td>
                         </tr>
                         <tr>

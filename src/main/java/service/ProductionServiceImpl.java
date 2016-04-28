@@ -33,8 +33,8 @@ public class ProductionServiceImpl implements ProductionService {
     }
 
     @Transactional(readOnly = false)
-    public void deleteProduction(Serializable id, String deleteMode) {
-        this.productionDao.deleteEntry(id);
+    public void deleteProduction(Production production) {
+        this.productionDao.deleteEntry(production);
     }
 
     @Transactional(readOnly = false)
@@ -66,7 +66,7 @@ public class ProductionServiceImpl implements ProductionService {
         }
         pageBean.setTotalPage(totalPage);
         int begin=(page-1)*limit;
-        List<Production> list=productionDao.findByPageCid(id, begin, limit);
+        List<Production> list=this.productionDao.findByPageCid(id, begin, limit);
         pageBean.setLimit(limit);
         return pageBean;
     }
@@ -77,8 +77,8 @@ public class ProductionServiceImpl implements ProductionService {
         int limit=8;
         pageBean.setLimit(limit);
         int totalCount=0;
-        totalCount=productionDao.findCountCsid(csid);
-//        pageBean.setTotalPage();
+        totalCount=this.productionDao.findCountCsid(csid);
+        pageBean.setTotalPage(totalCount);
         return null;
     }
 
@@ -97,7 +97,7 @@ public class ProductionServiceImpl implements ProductionService {
             totalPage=totalCount/limit+1;
         }
         pageBean.setTotalPage(totalPage);
-        int begin= (int) ((page-1)*limit);
+        int begin=(page-1)*limit;
         List<Production> list=productionDao.findByPage(begin,limit);
         pageBean.setList(list);
         return pageBean;

@@ -21,9 +21,9 @@
         </font>
         <br />
             <br />
-          <a href="${ pageContext.request.contextPath }/index.action">首页</a>
-          <a href="${ pageContext.request.contextPath }/user_registPage.action">注册</a>
-          <a href="${ pageContext.request.contextPath }/user_loginPage.action">登录</a>
+          <a href="${ pageContext.request.contextPath }/indexAction.action">首页</a>
+          <a href="${ pageContext.request.contextPath }/preuserAction_registPage.action">注册</a>
+          <a href="${ pageContext.request.contextPath }/preuserAction_loginPage.action">登录</a>
          </td>
       </tr>
     </table>

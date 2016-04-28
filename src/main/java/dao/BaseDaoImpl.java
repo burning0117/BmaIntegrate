@@ -35,9 +35,7 @@ public class BaseDaoImpl<T>implements BaseDao<T> {
     public void updateEntry(T t) {
         this.hibernateTemplate.update(t);
     }
-
-    public void deleteEntry(Serializable id) {
-        T t=this.getEntryById(id);
+    public void deleteEntry(T t){
         this.hibernateTemplate.delete(t);
     }
 }

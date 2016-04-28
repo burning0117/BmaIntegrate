@@ -9,7 +9,7 @@ import java.util.Set;
 public class Category implements Serializable{
     private Long cid;
     private String cname;
-    private Set<CategorySecond> categorySecondSeList;
+    private Set<CategorySecond> categorySeconds;
 
     public Long getCid() {
         return cid;
@@ -27,11 +27,11 @@ public class Category implements Serializable{
         this.cname = cname;
     }
 
-    public Set<CategorySecond> getCategorySecondSeList() {
-        return categorySecondSeList;
+    public Set<CategorySecond> getCategorySeconds() {
+        return categorySeconds;
     }
 
-    public void setCategorySecondSeList(Set<CategorySecond> categorySecondSeList) {
-        this.categorySecondSeList = categorySecondSeList;
+    public void setCategorySeconds(Set<CategorySecond> categorySeconds) {
+        this.categorySeconds = categorySeconds;
     }
 }

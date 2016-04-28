@@ -21,7 +21,7 @@
 	<div class="container header">
 		<div class="span5">
 			<div class="logo">
-				<a href="./网上商城/index.htm"> <img
+				<a href="http://localhost:8080"> <img
 					src="${pageContext.request.contextPath}/image/r___________renleipic_01/logo.gif"
 					alt="传智播客" /> </a>
 			</div>
@@ -59,13 +59,13 @@
 							</font>
 							&nbsp;&nbsp;&nbsp;&nbsp;<font color="red">
 								<s:if test="#order.state == 1">
-									<a href="${ pageContext.request.contextPath }/order_findByOid.action?oid=<s:property value="#order.oid" />">付款</a>
+									<a href="${ pageContext.request.contextPath }/orderAction_findByOid.action?oid=<s:property value="#order.oid" />">付款</a>
 								</s:if>
 								<s:if test="#order.state == 2">
 									已付款
 								</s:if>
 								<s:if test="#order.state == 3">
-									<a href="${ pageContext.request.contextPath }/order_updateState.action?oid=<s:property value="#order.oid" />">确认收货</a>
+									<a href="${ pageContext.request.contextPath }/orderAction_updateState.action?oid=<s:property value="#order.oid" />">确认收货</a>
 								</s:if>
 								<s:if test="#order.state == 4">
 									交易成功
@@ -83,10 +83,10 @@
 						<s:iterator var="orderItem" value="#order.orderItems">
 							<tr>
 								<td width="60"><img
-									src="${ pageContext.request.contextPath }/<s:property value="#orderItem.product.image"/>" />
+									src="${ pageContext.request.contextPath }/<s:property value="#orderItem.production.image"/>" />
 								</td>
-								<td><s:property value="#orderItem.product.pname" /></td>
-								<td><s:property value="#orderItem.product.shop_price" /></td>
+								<td><s:property value="#orderItem.production.pname" /></td>
+								<td><s:property value="#orderItem.production.shop_price" /></td>
 								<td class="quantity" width="60"><s:property
 										value="#orderItem.count" /></td>
 								<td width="140"><span class="subtotal">￥<s:property
@@ -102,15 +102,15 @@
 								value="pageBean.totalPage" />页 </span>
 								<s:if test="pageBean.page != 1">
 								<a
-									href="${ pageContext.request.contextPath }/order_findByUid.action?page=1"
+									href="${ pageContext.request.contextPath }/orderAction_findByUid.action?page=1"
 									class="firstPage">&nbsp;</a>
 								<a
-									href="${ pageContext.request.contextPath }/order_findByUid.action?page=<s:property value="pageBean.page-1"/>"
+									href="${ pageContext.request.contextPath }/orderAction_findByUid.action?page=<s:property value="pageBean.page-1"/>"
 									class="previousPage">&nbsp;</a>
 							</s:if> <s:iterator var="i" begin="1" end="pageBean.totalPage">
 								<s:if test="pageBean.page != #i">
 									<a
-										href="${ pageContext.request.contextPath }/order_findByUid.action?page=<s:property value="#i"/>"><s:property
+										href="${ pageContext.request.contextPath }/orderActionAction_findByUid.action?page=<s:property value="#i"/>"><s:property
 											value="#i" />
 									</a>
 								</s:if>
@@ -120,9 +120,9 @@
 								</s:else>
 							</s:iterator> <s:if test="pageBean.page != pageBean.totalPage">
 								<a class="nextPage"
-									href="${ pageContext.request.contextPath }/order_findByUid.action?page=<s:property value="pageBean.page+1"/>">&nbsp;</a>
+									href="${ pageContext.request.contextPath }/orderAction_findByUid.action?page=<s:property value="pageBean.page+1"/>">&nbsp;</a>
 								<a class="lastPage"
-									href="${ pageContext.request.contextPath }/order_findByUid.action?page=<s:property value="pageBean.totalPage"/>">&nbsp;</a>
+									href="${ pageContext.request.contextPath }/orderAction_findByUid.action?page=<s:property value="pageBean.totalPage"/>">&nbsp;</a>
 							</s:if>
 							</div>
 							</th>

@@ -17,7 +17,7 @@
 <div class="container header">
 	<div class="span5">
 		<div class="logo">
-			<a href="http://localhost:8080/mango/">
+			<a href="http://localhost:8080">
 				<img src="${pageContext.request.contextPath}/image/r___________renleipic_01/logo.gif" alt="传智播客">
 			</a>
 		</div>
@@ -48,13 +48,13 @@
 						<s:iterator var="cartItem" value="#session.cart.cartItems">
 						<tr>
 							<td width="60">
-								<img src="${pageContext.request.contextPath}/<s:property value="#cartItem.product.image"/>">
+								<img src="${pageContext.request.contextPath}/<s:property value="#cartItem.production.image"/>">
 							</td>
 							<td>
-								<a target="_blank"><s:property value="#cartItem.product.pname"/></a>
+								<a target="_blank"><s:property value="#cartItem.production.pname"/></a>
 							</td>
 							<td>
-								￥<s:property value="#cartItem.product.shop_price"/>
+								￥<s:property value="#cartItem.production.shop_price"/>
 							</td>
 							<td class="quantity" width="60">
 								<s:property value="#cartItem.count"/>
@@ -63,7 +63,7 @@
 								<span class="subtotal">￥<s:property value="#cartItem.subtotal"/></span>
 							</td>
 							<td>
-								<a href="${ pageContext.request.contextPath }/cart_removeCart.action?pid=<s:property value="#cartItem.product.pid"/>" class="delete">删除</a>
+								<a href="${ pageContext.request.contextPath }/cart_removeCart.action?pid=<s:property value="#cartItem.production.pid"/>" class="delete">删除</a>
 							</td>
 						</tr>
 						</s:iterator>
@@ -80,8 +80,8 @@
 					商品金额: <strong id="effectivePrice">￥<s:property value="#session.cart.total"/>元</strong>
 				</div>
 				<div class="bottom">
-					<a href="${ pageContext.request.contextPath }/cart_clearCart.action" id="clear" class="clear">清空购物车</a>
-					<a href="${ pageContext.request.contextPath }/order_saveOrder.action" id="submit" class="submit">提交订单</a>
+					<a href="${ pageContext.request.contextPath }/cartAction_clearCart.action" id="clear" class="clear">清空购物车</a>
+					<a href="${ pageContext.request.contextPath }/orderAction_saveOrder.action" id="submit" class="submit">提交订单</a>
 				</div>
 				
 		</div>

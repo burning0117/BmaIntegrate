@@ -38,23 +38,22 @@ public class CategorySecondServiceImpl implements CategorySecondService{
     }
     @Transactional(readOnly = false)
     public void saveCategorySecond(CategorySecond categorySecond) {
-        System.out.println("1111111");
-        categorySecondDao.saveEntry(categorySecond);
+        this.categorySecondDao.saveEntry(categorySecond);
     }
     @Transactional(readOnly = false)
     public void deleteCategorySecond(CategorySecond categorySecond) {
-        categorySecondDao.deleteEntry(categorySecond);
+        this.categorySecondDao.deleteEntry(categorySecond);
     }
 
     public CategorySecond getCategorySecondByCsid(Serializable id) {
-        return (CategorySecond) categorySecondDao.getEntryById(id);
+        return (CategorySecond) this.categorySecondDao.getEntryById(id);
     }
     @Transactional(readOnly = false)
     public void updateCategorySecond(CategorySecond categorySecond) {
-        categorySecondDao.updateEntry(categorySecond);
+        this.categorySecondDao.updateEntry(categorySecond);
     }
 
     public List<CategorySecond> getAllCategorySecond() {
-        return (List<CategorySecond>) categorySecondDao.getAllEntry();
+        return (List<CategorySecond>) this.categorySecondDao.getAllEntry();
     }
 }

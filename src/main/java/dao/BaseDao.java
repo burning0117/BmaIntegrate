@@ -11,5 +11,5 @@ public interface BaseDao <T>{
     public T getEntryById(Serializable id);
     public void saveEntry(T t);
     public void updateEntry(T t);
-    public void deleteEntry(Serializable id);
+    public void deleteEntry(T t);
 }

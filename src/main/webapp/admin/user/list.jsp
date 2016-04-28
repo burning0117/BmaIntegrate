@@ -61,13 +61,13 @@
 												<s:property value="#u.name"/>
 											</td>
 											<td align="center" style="HEIGHT: 22px">
-												<a href="${ pageContext.request.contextPath }/userAdminAction_edit.action?uid=<s:property value="#u.uid"/>">
+												<a href="${ pageContext.request.contextPath }/userAdminAction_edit.action?puid=<s:property value="#u.puid"/>">
 													<img src="${pageContext.request.contextPath}/images/i_edit.gif" border="0" style="CURSOR: hand">
 												</a>
 											</td>
 									
 											<td align="center" style="HEIGHT: 22px">
-												<a href="${ pageContext.request.contextPath }/userAdminAction_delete.action?uid=<s:property value="#u.uid"/>">
+												<a href="${ pageContext.request.contextPath }/userAdminAction_delete.action?puid=<s:property value="#u.puid"/>">
 													<img src="${pageContext.request.contextPath}/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
 												</a>
 											</td>

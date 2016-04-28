@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface OrderService {
     public void saveOrder(Order order);
-    public void deleteOrder(Serializable id, String deleteMode);
+    public void deleteOrder(Order order);
     public void updateOrder(Order order);
     public Collection<Order> getAllOrders();
     public Order getOrderById(Serializable id);

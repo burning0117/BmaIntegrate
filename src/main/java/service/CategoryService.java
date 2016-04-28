@@ -10,7 +10,7 @@ import java.util.Collection;
  */
 public interface CategoryService {
     public void saveCategory(Category category);
-    public void deleteCatory(Serializable id,String deleteMode);
+    public void deleteCatory(Category category);
     public void updateCatory(Category category);
     public Collection<Category> getAllCategory();
     public Category getCategoryById(Serializable id);

@@ -70,56 +70,12 @@ public class ProductionAction extends BaseAction<Production> {
         this.page = page;
     }
 
-    public String getAllProduction() {
-        Collection<Production> productionList = this.productionService.getAllProductions();
-        ActionContext.getContext().put("productionList", productionList);
-        return listAction;
-    }
-
-    public String deleteProduction() {
-        this.productionService.deleteProduction(this.getModel().getPid(), DeleteMode.DEL_PRE_RELEASE);
-        return action2action;
-    }
-
-    public String addUI() {
-        Collection<Seller> sellerList = this.sellerService.getAllSeller();
-        ActionContext.getContext().put("sellerList", sellerList);
-        return addUI;
-    }
-
-    public String add() {
-        Production production = new Production();
-        BeanUtils.copyProperties(this.getModel(), production);
-        Seller seller=this.sellerService.getSellerById(this.sid);
-        production.setSeller(seller);
-        this.productionService.saveProduction(production);
-        return action2action;
-    }
-
-    public String updateUI() {
-        Collection<Seller> sellerList = this.sellerService.getAllSeller();
-        Production production = this.productionService.getProductionById(this.getModel().getPid());
-        ActionContext.getContext().getValueStack().getRoot().add(0, production);
-//        ActionContext.getContext().put("production",production);
-        ActionContext.getContext().put("sellerList", sellerList);
-//        ActionContext.getContext().getValueStack().getRoot().add(1, sellerList);
-        return updateUI;
-    }
-
-    public String update() {
-        Production production = this.productionService.getProductionById(this.getModel().getPid());
-        BeanUtils.copyProperties(this.getModel(), production);
-        Seller seller=this.sellerService.getSellerById(this.sid);
-        production.setSeller(seller);
-        this.productionService.updateProduction(production);
-        return action2action;
-    }
     public String findByPid(){
-        production=this.getModel();
-        production=productionService.getProductionById(production.getPid());
+        production=this.productionService.getProductionById(this.getModel().getPid());
         return "findByPid";
     }
     public String findByCid(){
+        System.out.println(cid+"11111");
         PageBean<Production> pageBean=this.productionService.getProductionByPageCid(cid, page);
         ActionContext.getContext().getValueStack().set("pageBean",pageBean);
         return "findByCid";

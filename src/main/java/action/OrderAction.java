@@ -28,7 +28,7 @@ public class OrderAction extends BaseAction<Order>{
    private String r3_Amt;
    private String r6_Order;
    private Integer page;
-   private Order order=new Order();
+   private Order order;
    private Long uid;
 
    public Long getUid() {
@@ -44,6 +44,7 @@ public class OrderAction extends BaseAction<Order>{
          this.addActionMessage("亲!您好没有购物");
          return "msg";
       }
+      order=this.getModel();
       order.setTotal(cart.getTotal());
       order.setState(1);
       order.setOrdertime(new Date());
@@ -53,6 +54,7 @@ public class OrderAction extends BaseAction<Order>{
          return "msg";
       }
       order.setPreuser(existUser);
+      System.out.println("@@@@"+order.getOid());
       for (CartItem cartItem:cart.getCartItems()){
          OrderItem orderItem=new OrderItem();
          orderItem.setCount((long) cartItem.getCount());
@@ -133,4 +135,5 @@ public class OrderAction extends BaseAction<Order>{
       orderService.updateOrder(currentOrder);
       return "updateStateSuccess";
    }
+
 }

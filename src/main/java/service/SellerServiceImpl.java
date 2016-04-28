@@ -21,8 +21,8 @@ public class SellerServiceImpl implements SellerService {
         this.sellerDao.saveEntry(seller);
     }
     @Transactional(readOnly = false)
-    public void deleteSeller(Serializable id, String deleteMode) {
-        this.sellerDao.deleteEntry(id);
+    public void deleteSeller(Seller seller) {
+        this.sellerDao.deleteEntry(seller);
     }
     @Transactional(readOnly = false)
     public void updateSeller(Seller seller) {
