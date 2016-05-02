@@ -5,10 +5,6 @@
 <struts>
     <package name="production" namespace="/" extends="struts-default">
         <action name="productionAction_*" method="{1}" class="productionAction">
-            <result name="listAction">WEB-INF/jsp/production/list.jsp</result>
-            <result name="addUI">WEB-INF/jsp/production/add.jsp</result>
-            <result name="updateUI">WEB-INF/jsp/production/update.jsp</result>
-            <result name="action2action" type="redirectAction">productionAction_getAllProduction.action</result>
             <result name="findByPid">WEB-INF/jsp/production/product.jsp</result>
             <result name="findByCid">WEB-INF/jsp/production/productList.jsp</result>
             <result name="findByCsid">WEB-INF/jsp/production/productList.jsp</result>

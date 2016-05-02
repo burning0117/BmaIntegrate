@@ -28,7 +28,7 @@ public class OrderAction extends BaseAction<Order>{
    private String r3_Amt;
    private String r6_Order;
    private Integer page;
-   private Order order;
+   private Order order=new Order();
    private Long uid;
 
    public Long getUid() {

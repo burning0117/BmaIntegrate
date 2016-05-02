@@ -1,5 +1,7 @@
 package domain;
 
+import org.apache.struts2.json.annotations.JSON;
+
 import java.io.Serializable;
 import java.util.Set;
 
@@ -27,6 +29,7 @@ public class Category implements Serializable{
         this.cname = cname;
     }
 
+    @JSON(serialize = false)
     public Set<CategorySecond> getCategorySeconds() {
         return categorySeconds;
     }

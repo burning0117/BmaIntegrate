@@ -2,24 +2,20 @@ package action;
 
 import com.opensymphony.xwork2.ActionContext;
 import domain.Production;
-import domain.Seller;
-import org.springframework.beans.BeanUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import service.ProductionService;
 import service.SellerService;
-import utils.DeleteMode;
 import utils.PageBean;
 
 import javax.annotation.Resource;
-import java.util.Collection;
 
 /**
  * Created by lily on 2016/4/5.
  */
 @Controller("productionAction")
 @Scope("prototype")
-public class ProductionAction extends BaseAction<Production> {
+public class ProductionAction extends BaseAction<Production>{
     @Resource(name = "productionService")
     private ProductionService productionService;
     @Resource(name = "sellerService")
@@ -28,16 +24,7 @@ public class ProductionAction extends BaseAction<Production> {
     private Long csid;
     private Long cid;
     private int page;
-    private Production production;
-
-    public Production getProduction() {
-        return production;
-    }
-
-    public void setProduction(Production production) {
-        this.production = production;
-    }
-
+    private Production production=new Production();
     public Long getSid() {
         return sid;
     }
@@ -72,10 +59,10 @@ public class ProductionAction extends BaseAction<Production> {
 
     public String findByPid(){
         production=this.productionService.getProductionById(this.getModel().getPid());
+        ActionContext.getContext().getValueStack().set("production", production);
         return "findByPid";
     }
     public String findByCid(){
-        System.out.println(cid+"11111");
         PageBean<Production> pageBean=this.productionService.getProductionByPageCid(cid, page);
         ActionContext.getContext().getValueStack().set("pageBean",pageBean);
         return "findByCid";
@@ -85,4 +72,5 @@ public class ProductionAction extends BaseAction<Production> {
         ActionContext.getContext().getValueStack().set("pageBean",pageBean);
         return "findByCsid";
     }
+
 }

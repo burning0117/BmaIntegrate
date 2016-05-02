@@ -79,7 +79,17 @@ public class ProductionServiceImpl implements ProductionService {
         int totalCount=0;
         totalCount=this.productionDao.findCountCsid(csid);
         pageBean.setTotalPage(totalCount);
-        return null;
+        int totalPage=0;
+        if (totalCount%limit==0){
+            totalPage=totalCount/limit;
+        }else {
+            totalPage=totalCount/limit+1;
+        }
+        pageBean.setTotalPage(totalPage);
+        int begin=(page-1)*limit;
+        List<Production> list=this.productionDao.findBypageCsid(csid,begin,limit);
+        pageBean.setList(list);
+        return pageBean;
     }
 
     public PageBean<Production> getProductionByPage(int page) {
