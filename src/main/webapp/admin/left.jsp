@@ -34,6 +34,7 @@
 		d.add('010401','0104','商品管理','${pageContext.request.contextPath}/adminProductionAction_findAll.action?page=1','','mainFrame');
 		d.add('0105','01','订单管理');
 		d.add('010501','0105','订单管理','${pageContext.request.contextPath}/adminOrderAction_findAll.action?page=1','','mainFrame');
+		d.add('010502','0105','订单交易信息','${pageContext.request.contextPath}/adminOrderAction_findAll.action?page=1','','mainFrame');
 		document.write(d);
 		//-->
 	</script>
