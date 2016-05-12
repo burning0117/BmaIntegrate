@@ -55,7 +55,7 @@
 
         <div class="productImage">
             <a title="" style="outline-style: none; text-decoration: none;" id="zoom"
-               href="http://localhost:8080/image/r___________renleipic_01/bigPic1ea8f1c9-8b8e-4262-8ca9-690912434692.jpg"
+               <%--href="http://localhost:8080/image/r___________renleipic_01/bigPic1ea8f1c9-8b8e-4262-8ca9-690912434692.jpg"--%>
                rel="gallery">
                 <div class="zoomPad"><img style="opacity: 1;" title="" class="medium"
                                           src="${ pageContext.request.contextPath }/<s:property value="production.image"/>">
@@ -87,9 +87,9 @@
             <dl>
                 <dt>商城价:</dt>
                 <dd>
-                    <strong>￥：<s:property value="production.shop_price"/>元/每小时</strong>
+                    <strong>￥：<s:property value="production.market_price"/>元/每小时</strong>
                     参 考 价：
-                    <del>￥<s:property value="production.market_price"/>元/每小时</del>
+                    <del>￥<s:property value="production.shop_price"/>元/每小时</del>
                 </dd>
             </dl>
             <dl>

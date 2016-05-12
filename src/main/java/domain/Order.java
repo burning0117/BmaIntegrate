@@ -2,8 +2,8 @@ package domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Collection;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Created by lily on 2016/4/3.
@@ -17,13 +17,29 @@ public class Order implements Serializable {
     private BigDecimal greputationrate;
     private BigDecimal gqos;
     private BigDecimal gqosrate;
-    private Preuser preuser;
     private Double total;
     private Date ordertime;
     private String address;
-    private Collection<OrderItem> orderItemList;
     private String phone;
     private Integer state;
+    private Preuser preuser;
+    private Set<OrderItem> orderItemList;
+
+    public Set<OrderItem> getOrderItemList() {
+        return orderItemList;
+    }
+
+    public void setOrderItemList(Set<OrderItem> orderItemList) {
+        this.orderItemList = orderItemList;
+    }
+
+    public Preuser getPreuser() {
+        return preuser;
+    }
+
+    public void setPreuser(Preuser preuser) {
+        this.preuser = preuser;
+    }
 
     public Double getTotal() {
         return total;
@@ -55,14 +71,6 @@ public class Order implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public Collection<OrderItem> getOrderItemList() {
-        return orderItemList;
-    }
-
-    public void setOrderItemList(Collection<OrderItem> orderItemList) {
-        this.orderItemList = orderItemList;
     }
 
     public Integer getState() {
@@ -137,11 +145,4 @@ public class Order implements Serializable {
         this.gqosrate = gqosrate;
     }
 
-    public Preuser getPreuser() {
-        return preuser;
-    }
-
-    public void setPreuser(Preuser preuser) {
-        this.preuser = preuser;
-    }
 }

@@ -5,7 +5,7 @@
     <class name="domain.AdminUser" table="adminUser" catalog="bma">
         <id name="auid" type="java.lang.Long" length="5">
             <column name="auid"></column>
-            <generator class="increment"></generator>
+            <generator class="identity"></generator>
         </id>
         <property name="username" type="java.lang.String" length="20"></property>
         <property name="password" type="java.lang.String" length="20"></property>

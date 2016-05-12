@@ -49,9 +49,7 @@
     </div>
     <div class="span18 last">
 
-        <form id="productForm" action="${pageContext.request.contextPath}/image/蔬菜 - Powered By Mango Team.htm"
-              method="get">
-
+        <form id="productForm">
             <div id="result" class="result table clearfix">
                 <ul>
                     <s:iterator var="p" value="pageBean.list">
@@ -59,11 +57,7 @@
                             <a href="${ pageContext.request.contextPath }/productionAction_findByPid.action?pid=<s:property value="#p.pid"/>">
                                 <img src="${pageContext.request.contextPath}/<s:property value="#p.image"/>" width="170"
                                      height="170" style="display: inline-block;">
-
-											<span style='color:green'>
-											 <s:property value="#p.pname"/>
-											</span>
-
+											<span style='color:green'><s:property value="#p.pname"/></span>
 											<span class="price">
 												商城价： ￥<s:property value="#p.shop_price"/>
 											</span>

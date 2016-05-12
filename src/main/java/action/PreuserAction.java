@@ -40,6 +40,7 @@ public class PreuserAction extends BaseAction<Preuser>{
             return "checkCodeFail";
         }
         preuser=this.getModel();
+        System.out.println(preuser);
         preuserService.savePreuser(preuser);
         this.addActionMessage("注册成功！请去邮箱激活");
         return "msg";
@@ -65,7 +66,7 @@ public class PreuserAction extends BaseAction<Preuser>{
             this.addActionError("登录失败：用户名或密码错误或用户未激活");
             return "loginPage";
         }else {
-            ServletActionContext.getRequest().getSession().setAttribute("existUser",existUser);
+            ServletActionContext.getRequest().getSession().setAttribute("existUser", existUser);
             return "loginSuccess";
         }
     }

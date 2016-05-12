@@ -5,7 +5,7 @@
     <class name="domain.Seller" table="seller" catalog="bma">
         <id name="sid" type="java.lang.Long" length="5">
             <column name="sId"></column>
-            <generator class="increment"></generator>
+            <generator class="identity"></generator>
         </id>
         <property name="name" type="java.lang.String" length="20"></property>
         <property name="password" type="java.lang.String" length="20"></property>

@@ -5,7 +5,7 @@
     <class name="domain.CategorySecond" table="categorysecond" catalog="bma">
         <id name="csid" type="java.lang.Long" length="5">
             <column name="csid"></column>
-            <generator class="increment"></generator>
+            <generator class="identity"></generator>
         </id>
         <property name="csname" type="java.lang.String" length="20"></property>
         <many-to-one name="category" class="domain.Category" lazy="false">

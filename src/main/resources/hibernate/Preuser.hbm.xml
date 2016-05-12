@@ -5,7 +5,7 @@
     <class name="domain.Preuser" table="preuser" catalog="bma">
         <id name="puid" type="java.lang.Long" length="5">
             <column name="puid"></column>
-            <generator class="increment"></generator>
+            <generator class="identity"></generator>
         </id>
         <property name="username" type="java.lang.String" length="20"></property>
         <property name="name" type="java.lang.String" length="20"></property>
@@ -19,7 +19,7 @@
         <property name="code" type="java.lang.String"></property>
         <set name="orders" cascade="delete">
             <key>
-                <column name="uid"></column>
+                <column name="puid"></column>
             </key>
             <one-to-many class="domain.Order"/>
         </set>

@@ -5,15 +5,18 @@
     <class name="domain.OrderItem" table="orderItem" catalog="bma">
         <id name="itemid" type="java.lang.Long" length="5">
             <column name="itemid"></column>
-            <generator class="increment"></generator>
+            <generator class="identity"></generator>
         </id>
         <property name="count"></property>
         <property name="subtotal"></property>
 
-        <many-to-one name="production" class="domain.Production" unique="true">
+        <many-to-one name="production" class="domain.Production" lazy="false">
             <column name="pid"></column>
         </many-to-one>
-        <many-to-one name="order" class="domain.Order" unique="true">
+        <!--<many-to-one name="order" class="domain.Order" unique="true">-->
+            <!--<column name="oid"></column>-->
+        <!--</many-to-one>-->
+        <many-to-one name="order" class="domain.Order">
             <column name="oid"></column>
         </many-to-one>
     </class>

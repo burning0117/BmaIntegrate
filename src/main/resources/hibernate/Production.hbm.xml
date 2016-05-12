@@ -5,7 +5,7 @@
     <class name="domain.Production" table="production" catalog="bma">
         <id name="pid" type="java.lang.Long" length="5">
             <column name="pid"></column>
-            <generator class="increment"></generator>
+            <generator class="identity"></generator>
         </id>
         <property name="pname" type="java.lang.String" length="20"></property>
         <property name="price" type="java.math.BigDecimal" length="20"></property>

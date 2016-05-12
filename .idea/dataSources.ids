@@ -25,33 +25,32 @@
       <column name="cid" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="csid"/>
       <foreign-key name="FK936FCAF2357FDBC6" columns="cid" ref-table="category" ref-schema="" ref-catalog="bma" ref-columns="cid" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="FK687CF0B9B0A1D727" table="production" schema="" catalog="bma" columns="pid"/>
       <exported-key name="FK687CF0B9B0CEE327" table="production" schema="" catalog="bma" columns="csid"/>
       <index name="FK936FCAF2357FDBC6" unique="false" columns="cid"/>
     </table>
+    <table name="farm" schema="" catalog="bma" type="TABLE">
+      <column name="fid" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="fid"/>
+      <exported-key name="FK65CDA6B3719741" table="plant" schema="" catalog="bma" columns="fid"/>
+    </table>
     <table name="order" schema="" catalog="bma" type="TABLE">
-      <column name="oid" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="oid" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="price" sqlType="DECIMAL" precision="19" scale="2" nullable="true" jdbcType="3"/>
       <column name="pricerate" sqlType="DECIMAL" precision="19" scale="2" nullable="true" jdbcType="3"/>
       <column name="greputation" sqlType="DECIMAL" precision="19" scale="2" nullable="true" jdbcType="3"/>
       <column name="greputationrate" sqlType="DECIMAL" precision="19" scale="2" nullable="true" jdbcType="3"/>
       <column name="gqos" sqlType="DECIMAL" precision="19" scale="2" nullable="true" jdbcType="3"/>
       <column name="gqosrate" sqlType="DECIMAL" precision="19" scale="2" nullable="true" jdbcType="3"/>
-      <column name="total" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
       <column name="ordertime" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
-      <column name="address" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
-      <column name="phone" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="phone" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="state" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="puid" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
-      <column name="gid" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
-      <column name="uid" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="oid"/>
-      <foreign-key name="FK651874E378AE97" columns="gid" ref-table="user" ref-schema="" ref-catalog="bma" ref-columns="uId" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="FK651874E38FDD1F4" columns="uid" ref-table="preuser" ref-schema="" ref-catalog="bma" ref-columns="puid" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK651874E3930BB84" columns="puid" ref-table="preuser" ref-schema="" ref-catalog="bma" ref-columns="puid" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="FKE8A41F816B19634E" table="orderitem" schema="" catalog="bma" columns="oid"/>
-      <index name="FK651874E378AE97" unique="false" columns="gid"/>
-      <index name="FK651874E38FDD1F4" unique="false" columns="uid"/>
       <index name="FK651874E3930BB84" unique="false" columns="puid"/>
     </table>
     <table name="orderitem" schema="" catalog="bma" type="TABLE">
@@ -66,6 +65,14 @@
       <index name="FKE8A41F816B19634E" unique="false" columns="oid"/>
       <index name="FKE8A41F81EA8AE5CE" unique="false" columns="pid"/>
     </table>
+    <table name="plant" schema="" catalog="bma" type="TABLE">
+      <column name="pid" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="fid" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="pid"/>
+      <foreign-key name="FK65CDA6B3719741" columns="fid" ref-table="farm" ref-schema="" ref-catalog="bma" ref-columns="fid" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK65CDA6B3719741" unique="false" columns="fid"/>
+    </table>
     <table name="preuser" schema="" catalog="bma" type="TABLE">
       <column name="puid" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="username" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
@@ -74,10 +81,12 @@
       <column name="phone" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
       <column name="address" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
       <column name="email" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="pureputation" sqlType="DECIMAL" precision="19" scale="2" nullable="true" jdbcType="3"/>
       <column name="state" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="checkcode" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="code" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="puid"/>
-      <exported-key name="FK651874E38FDD1F4" table="order" schema="" catalog="bma" columns="uid"/>
+      <exported-key name="FK651874E3930BB84" table="order" schema="" catalog="bma" columns="puid"/>
     </table>
     <table name="production" schema="" catalog="bma" type="TABLE">
       <column name="pid" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
@@ -100,14 +109,10 @@
       <column name="csid" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <column name="sid" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="pid"/>
-      <foreign-key name="FK687CF0B9B0A1D727" columns="pid" ref-table="categorysecond" ref-schema="" ref-catalog="bma" ref-columns="csid" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK687CF0B9B0CEE327" columns="csid" ref-table="categorysecond" ref-schema="" ref-catalog="bma" ref-columns="csid" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="FK687CF0B9FE009994" columns="pid" ref-table="seller" ref-schema="" ref-catalog="bma" ref-columns="sId" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK687CF0B9FE00A4D7" columns="sid" ref-table="seller" ref-schema="" ref-catalog="bma" ref-columns="sId" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="FKE8A41F81EA8AE5CE" table="orderitem" schema="" catalog="bma" columns="pid"/>
-      <index name="FK687CF0B9B0A1D727" unique="false" columns="pid"/>
       <index name="FK687CF0B9B0CEE327" unique="false" columns="csid"/>
-      <index name="FK687CF0B9FE009994" unique="false" columns="pid"/>
       <index name="FK687CF0B9FE00A4D7" unique="false" columns="sid"/>
     </table>
     <table name="seller" schema="" catalog="bma" type="TABLE">
@@ -119,19 +124,7 @@
       <column name="description" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
       <column name="sreputation" sqlType="DECIMAL" precision="19" scale="2" nullable="true" jdbcType="3"/>
       <primary-key name="PRIMARY" columns="sId"/>
-      <exported-key name="FK687CF0B9FE009994" table="production" schema="" catalog="bma" columns="pid"/>
       <exported-key name="FK687CF0B9FE00A4D7" table="production" schema="" catalog="bma" columns="sid"/>
-    </table>
-    <table name="user" schema="" catalog="bma" type="TABLE">
-      <column name="uId" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
-      <column name="password" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
-      <column name="phone" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
-      <column name="address" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
-      <column name="email" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
-      <column name="ureputation" sqlType="DECIMAL" precision="19" scale="2" nullable="true" jdbcType="3"/>
-      <primary-key name="PRIMARY" columns="uId"/>
-      <exported-key name="FK651874E378AE97" table="order" schema="" catalog="bma" columns="gid"/>
     </table>
   </data-source>
 </component>

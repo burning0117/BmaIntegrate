@@ -5,7 +5,7 @@
     <class name="domain.Category" table="category" catalog="bma">
         <id name="cid" type="java.lang.Long" length="5">
             <column name="cid"></column>
-            <generator class="increment"></generator>
+            <generator class="identity"></generator>
         </id>
         <property name="cname" type="java.lang.String" length="20"></property>
         <set name="categorySeconds" lazy="false" cascade="delete">
