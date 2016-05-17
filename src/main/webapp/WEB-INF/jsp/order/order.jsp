@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0043)http://localhost:8080/mango/cart/list.jhtml -->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
@@ -48,7 +47,7 @@
 				<table>
 					<tbody>
 					<tr>
-						<th colspan="5">订单编号:<s:property value="model.oid"/>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+						<th colspan="5">订单编号:<s:property value="#session.order.oid"/>&nbsp;&nbsp;&nbsp;&nbsp;</th>
 					</tr>
 					<tr>
 						<th>图片</th>
@@ -57,7 +56,8 @@
 						<th>数量</th>
 						<th>小计</th>
 					</tr>
-						<s:iterator var="orderItem" value="model.orderItems">
+						<s:iterator var="orderItem" value="#session.order.orderItemList">
+
 						<tr>
 							<td width="60">
 								<img src="${ pageContext.request.contextPath }/<s:property value="#orderItem.production.image"/>"/>
@@ -83,17 +83,17 @@
 				</dl>
 				<div class="total">
 					<em id="promotion"></em>
-					商品金额: <strong id="effectivePrice">￥<s:property value="model.total"/>元</strong>
+					商品金额: <strong id="effectivePrice">￥<s:property value="total"/>元</strong>
 				</div>
 			<form id="orderForm" action="${ pageContext.request.contextPath }/orderAction_payOrder.action" method="post">
-				<input type="hidden" name="oid" value="<s:property value="model.oid"/>"/>
+				<input type="hidden" name="oid" value="<s:property value="oid"/>"/>
 				<div class="span24">
 					<p>
-							收货地址：<input name="addr" type="text" value="<s:property value="model.preuser.addr"/>" style="width:350px" />
+							收货地址：<input name="addr" type="text" value="<s:property value="#session.existUser.address"/>" style="width:350px" />
 								<br />
-							收货人&nbsp;&nbsp;&nbsp;：<input name="name" type="text" value="<s:property value="model.preuser.name"/>" style="width:150px" />
+							收货人&nbsp;&nbsp;&nbsp;：<input name="name" type="text" value="<s:property value="#session.existUser.name"/>" style="width:150px" />
 								<br /> 
-							联系方式：<input name="phone" type="text"value="<s:property value="model.preuser.phone"/>" style="width:150px" />
+							联系方式：<input name="phone" type="text"value="<s:property value="#session.existUser.phone"/>" style="width:150px" />
 
 						</p>
 						<hr />

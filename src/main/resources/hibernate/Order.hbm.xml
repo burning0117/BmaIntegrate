@@ -12,12 +12,12 @@
         <property name="pricerate" type="java.math.BigDecimal"></property>
         <property name="greputation" type="java.math.BigDecimal"></property>
         <property name="greputationrate" type="java.math.BigDecimal"></property>
-        <property name="gqos" type="java.math.BigDecimal"></property>
         <property name="gqosrate" type="java.math.BigDecimal"></property>
         <property name="ordertime" type="java.util.Date"></property>
         <property name="address" type="java.lang.String"></property>
         <property name="phone" type="java.lang.String"></property>
         <property name="state" type="java.lang.Integer"></property>
+        <property name="total" type="java.lang.Double"></property>
         <many-to-one name="preuser" lazy="false" cascade="all" column="puid"/>
         <set name="orderItemList" cascade="all" inverse="false">
             <key column="oid"></key>

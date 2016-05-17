@@ -27,6 +27,7 @@ public class Cart implements Serializable{
         if (map.containsKey(pid)){
             CartItem cartItem1=map.get(pid);
             cartItem1.setCount(cartItem1.getCount()+cartItem.getCount());
+            cartItem1.setSubtotal(cartItem1.getCount()*cartItem.getProduction().getShop_price());
         }else {
             map.put(pid,cartItem);
         }

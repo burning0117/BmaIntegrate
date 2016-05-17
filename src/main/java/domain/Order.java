@@ -3,6 +3,7 @@ package domain;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -11,11 +12,10 @@ import java.util.Set;
 public class Order implements Serializable {
     private Long oid;
     private String name;
-    private BigDecimal price;
-    private BigDecimal pricerate;
+    private BigDecimal price;//买方的出价
+    private BigDecimal pricerate;//买方对卖方
     private BigDecimal greputation;
     private BigDecimal greputationrate;
-    private BigDecimal gqos;
     private BigDecimal gqosrate;
     private Double total;
     private Date ordertime;
@@ -23,7 +23,7 @@ public class Order implements Serializable {
     private String phone;
     private Integer state;
     private Preuser preuser;
-    private Set<OrderItem> orderItemList;
+    private Set<OrderItem> orderItemList=new HashSet<OrderItem>();
 
     public Set<OrderItem> getOrderItemList() {
         return orderItemList;
@@ -127,14 +127,6 @@ public class Order implements Serializable {
 
     public void setGreputationrate(BigDecimal greputationrate) {
         this.greputationrate = greputationrate;
-    }
-
-    public BigDecimal getGqos() {
-        return gqos;
-    }
-
-    public void setGqos(BigDecimal gqos) {
-        this.gqos = gqos;
     }
 
     public BigDecimal getGqosrate() {

@@ -6,6 +6,7 @@
     <package name="adminOrder" namespace="/" extends="privilegeInterceptor">
         <action name="adminOrderAction_*" method="{1}" class="action.AdminOrderAction">
             <result name="findAll">/admin/order/list.jsp</result>
+            <result name="result">/admin/order/result.jsp</result>
             <result name="updateStateSuccess" type="redirectAction">adminOrderAction_findAll?page=1</result>
             <result name="findOrderItem">/admin/order/orderItem.jsp</result>
             <interceptor-ref name="privilegeInterceptor"/>

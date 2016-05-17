@@ -46,9 +46,9 @@ public class OrderDaoImpl extends BaseDaoImpl<Order> implements OrderDao<Order> 
     }
 
     public List<OrderItem> getOrderByOrderItem(long oid) {
-        String hql = "from OrderItem oi where oi.order.oid=?";
+        String hql = "from OrderItem oi where oi.order.oid= ?";
         List<OrderItem> list = this.hibernateTemplate.find(hql, oid);
-        if (list!=null&&list.size()>0){
+        if (list != null && list.size() > 0) {
             return list;
         }
         return null;

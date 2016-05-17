@@ -3,6 +3,7 @@ package action;
 import com.opensymphony.xwork2.ActionContext;
 import domain.Order;
 import domain.OrderItem;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import service.OrderService;
@@ -26,6 +27,9 @@ public class AdminOrderAction extends BaseAction<Order>{
         ActionContext.getContext().getValueStack().set("pageBean",pageBean);
         return "findAll";
     }
+    public String getMatchResult(){
+       return "result";
+    }
     public String updateState(){
         Order currentOrder=orderService.getOrderById(order.getOid());
         currentOrder.setState(3);
@@ -33,7 +37,8 @@ public class AdminOrderAction extends BaseAction<Order>{
         return "updateStateSuccess";
     }
     public String findOrderItem(){
-        List<OrderItem> list=orderService.findOrderItem(order.getOid());
+        Long oid= (Long) ServletActionContext.getRequest().getAttribute("oid");
+        List<OrderItem> list=orderService.findOrderItem(oid);
         ActionContext.getContext().getValueStack().set("list",list);
         return "findOrderItem";
     }

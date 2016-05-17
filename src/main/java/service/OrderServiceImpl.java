@@ -59,9 +59,10 @@ public class OrderServiceImpl implements OrderService {
         int begin=(page-1)*limit;
         List<Order> list=orderDao.findPageByUid(uid,begin,limit);
         pageBean.setList(list);
-        return null;
+        return pageBean;
     }
     public List<OrderItem> findOrderItem(Long oid) {
+        System.out.println("oid="+oid);
         return orderDao.getOrderByOrderItem(oid);
     }
 

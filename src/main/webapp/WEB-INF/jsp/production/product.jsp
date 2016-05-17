@@ -55,6 +55,7 @@
 
         <div class="productImage">
             <a title="" style="outline-style: none; text-decoration: none;" id="zoom"
+               <%--产品大图--%>
                <%--href="http://localhost:8080/image/r___________renleipic_01/bigPic1ea8f1c9-8b8e-4262-8ca9-690912434692.jpg"--%>
                rel="gallery">
                 <div class="zoomPad"><img style="opacity: 1;" title="" class="medium"

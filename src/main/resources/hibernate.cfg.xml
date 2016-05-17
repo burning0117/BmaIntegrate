@@ -22,5 +22,6 @@
                 <mapping resource="hibernate/AdminUser.hbm.xml"/>
                 <mapping resource="hibernate/plant.hbm.xml"/>
                 <mapping resource="hibernate/farm.hbm.xml"/>
+                <mapping resource="hibernate/Result.hbm.xml"/>
         </session-factory>
 </hibernate-configuration>

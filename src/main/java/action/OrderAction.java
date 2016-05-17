@@ -1,6 +1,8 @@
 package action;
 
 import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 import domain.*;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
@@ -11,6 +13,7 @@ import utils.PageBean;
 import utils.PaymentUtil;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 import java.io.IOException;
 import java.util.Date;
 
@@ -19,7 +22,7 @@ import java.util.Date;
  */
 @Controller("orderAction")
 @Scope("prototype")
-public class OrderAction extends BaseAction<Order>{
+public class OrderAction extends ActionSupport implements ModelDriven{
    @Resource(name = "orderService")
    private OrderService orderService;
    @Resource(name = "preuserService")
@@ -28,7 +31,7 @@ public class OrderAction extends BaseAction<Order>{
    private String r3_Amt;
    private String r6_Order;
    private Integer page;
-   private Order order=new Order();
+   private Order order;
    private Long uid;
 
    public Long getUid() {
@@ -61,11 +64,8 @@ public class OrderAction extends BaseAction<Order>{
          orderItem.setOrder(order);
          order.getOrderItemList().add(orderItem);
       }
-      System.out.println(order);
-      Order order1=new Order();
-      order1.setName("test");
-      order1.setOid((long) 1);
-      orderService.saveOrder(order1);
+      orderService.saveOrder(order);
+      ServletActionContext.getRequest().getSession().setAttribute("order", order);
       cart.clearCart();
       return "saveOrder";
    }
@@ -138,4 +138,10 @@ public class OrderAction extends BaseAction<Order>{
       return "updateStateSuccess";
    }
 
+   public Object getModel() {
+      if (order==null){
+         order=new Order();
+      }
+      return order;
+   }
 }

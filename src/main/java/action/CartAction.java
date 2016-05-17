@@ -25,6 +25,7 @@ public class CartAction extends BaseAction<Cart>{
         cartItem.setCount(count);
         Production production=productionService.getProductionById(pid);
         cartItem.setProduction(production);
+        cartItem.setSubtotal(count*production.getShop_price());
         Cart cart=getCart();
         cart.addCart(cartItem);
         return "addCart";
